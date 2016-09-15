@@ -25,7 +25,7 @@ class Vendedor extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
-   // public $timestamps=false;
+    public $timestamps=false;
   // belongsTo
   public function persona(){
     return $this->hasOne('FinanciaSystem\Persona', 'id','id_persona');

@@ -124,6 +124,14 @@
                             
                           </ul>
                         </li> 
+                        <li ><a>Servicios Vehiculos<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: none;">
+                               <li ><a href="{{url('admin/Servicios_for_Vehiculo/')}}">Asignar Servicio a Vehiculo</a></li>
+                               <li ><a href="{{url('admin/Servicios_for_Vehiculo')}}">Vehiculos</a></li>
+                            
+                          </ul>
+                        </li> 
+                        
                             
              
 

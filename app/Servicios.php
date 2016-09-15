@@ -18,4 +18,10 @@ class Servicios extends Model
     ];
  
     public $timestamps=false;
+
+
+
+  public function vehiculos(){
+    return $this->belongsToMany('FinanciaSystem\Servicios_Vehiculo','id_servicio','id_vehiculo','precio','fecha');
+  }
  }

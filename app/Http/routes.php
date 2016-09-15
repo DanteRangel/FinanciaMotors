@@ -18,6 +18,7 @@ Route::get('ErrorPermisos', function(){
 Route::get('/contra/{contra}',function($contra){
 	return bcrypt($contra);
 });
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
@@ -37,4 +38,7 @@ Route::resource('Vendedor','VendedorController');
 
 Route::resource('Servicios','ServiciosController');
 
+Route::resource('Servicios_for_Vehiculo','Servicios_VehiculoController');
+
+Route::any('Servicios_for_Vehiculo/{id}/setServicios','Servicios_VehiculoController@setServicios');
 });
