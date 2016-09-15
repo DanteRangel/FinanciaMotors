@@ -73,7 +73,8 @@ class VendedorController extends Controller
             'id_persona'=>$persona->id,
             'password'=>bcrypt($request->password),
             'img_src'=>$nombreImagen,
-            'id_permiso'=>$request->permiso
+            'id_permiso'=>$request->permiso,
+            'status'=>1
             ]);
         Storage::disk('public')->makeDirectory('/assets/profile/'.$user->id);
         $url =  '/assets/profile/'.$user->id.'/'.$nombreImagen;
@@ -132,7 +133,64 @@ class VendedorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+$vendedor=Vendedor::find($id);
+         //    return $request->all();
+        $this->validate($request,[
+            'nombre'=>'required|string',
+            'apellidoPaterno'=>'required|string',
+            'apellidoMaterno'=>'required|string',
+            'correo'=>'required|string|unique:Persona,correo,'.$vendedor->id_persona,
+            'telefono_cel'=>'numeric',
+            'telefono_otro'=>'numeric',
+            'password' => 'min:6|confirmed',
+            'permiso'=>'required|numeric',
+            'imagen_user'=>'image',
+            'status'=>'required'
+
+            ]);
+
+
+           
+$persona=Persona::find($vendedor->id_persona);            
+$persona->nombre=$request->nombre;
+$persona->apellidoPaterno=$request->apellidoPaterno;
+$persona->apellidoMaterno=$request->apellidoMaterno;
+$persona->correo=$request->correo;
+$persona->telefono_cel=$request->telefono_cel;
+$persona->telefono_otro=$request->telefono_otro;
+$persona->save();
+if($request->password!=null){
+    $vendedor->password=bcrypt($request->password);
+}
+if($request->imagen_user!=null){
+    
+
+                $nombreImagen= $request->file('imagen_user')->getClientOriginalName();
+        if(Storage::disk('public')->exists('/assets/profile/'.$vendedor->id)){
+            Storage::disk('public')->delete('/assets/profile/'.$vendedor->id.'/'.$vendedor->img_src);
+        
+        }else{
+        Storage::disk('public')->makeDirectory('/assets/profile/'.$vendedor->id);
+            
+        }
+        
+        $url =  '/assets/profile/'.$vendedor->id.'/'.$nombreImagen;
+          Storage::disk('public')->put($url , file_get_contents($request->file('imagen_user')->getRealPath()));
+          $vendedor->img_src=$nombreImagen;
+
+}
+
+
+$vendedor->status=$request->status;
+$vendedor->id_permiso=$request->permiso;
+
+$request->session()->flash('actualizar','Se ha modificado el usuario con clave '.$vendedor->clave_vendedor);
+$vendedor->save();
+
+      
+        return redirect('admin/Vendedor/');
+        //if($request->password!=)
     }
 
     /**
@@ -141,8 +199,14 @@ class VendedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $vendedor=Vendedor::find($id);
+         
+        $request->session()->flash('eliminar','Se ha dado de baja al Vendedor con exito. Clave '.$vendedor->clave_vendedor);
+
+        $vendedor->status=-1;
+        $vendedor->save();
+        return redirect('admin/Vendedor');
     }
 }

@@ -100,7 +100,7 @@
                           <ul class="nav child_menu" style="display: none;">
                                <li ><a href="{{url('admin/Vehiculo/create')}}">Alta Vehiculo</a></li>
                                <li ><a href="{{url('admin/Vehiculo')}}">Modificar/Eliminar</a></li>
-                            
+                               
                           </ul>
                         </li>
                          <li ><a>Tipo Vehiculo<span class="fa fa-chevron-down"></span></a>
@@ -117,6 +117,14 @@
                             
                           </ul>
                         </li>
+                        <li ><a>Servicios<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: none;">
+                               <li ><a href="{{url('admin/Servicios/create')}}">Alta Servicio</a></li>
+                               <li ><a href="{{url('admin/Servicios')}}">Modificar/Eliminar</a></li>
+                            
+                          </ul>
+                        </li> 
+                            
              
 
  

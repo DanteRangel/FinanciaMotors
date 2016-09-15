@@ -12,7 +12,7 @@
 */
 Route::get('/', 'HomeController@index');
 Route::get('ErrorPermisos', function(){
-	return view('errorpermisos');
+	return view('errors.errorpermisos');
 });
   
 Route::get('/contra/{contra}',function($contra){
@@ -34,5 +34,7 @@ Route::resource('Marca','MarcasController');
 Route::resource('Cliente','ClienteController');
 
 Route::resource('Vendedor','VendedorController');
+
+Route::resource('Servicios','ServiciosController');
 
 });

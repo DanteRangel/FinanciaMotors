@@ -13,7 +13,7 @@ class Vendedor extends Model
     protected $table="Vendedor";
 
     protected $fillable = [
-        'clave_vendedor', 'password','id_persona','id_permiso','img_src',
+        'clave_vendedor', 'password','id_persona','id_permiso','img_src','status','created_at','updated_at'
     ];
 
     /**
@@ -25,7 +25,7 @@ class Vendedor extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public $timestamps=false;
+   // public $timestamps=false;
   // belongsTo
   public function persona(){
     return $this->hasOne('FinanciaSystem\Persona', 'id','id_persona');

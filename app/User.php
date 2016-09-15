@@ -14,7 +14,7 @@ class User extends Authenticatable
     protected $table="Vendedor";
 
  protected $fillable = [
-        'clave_vendedor', 'password','id_persona','id_permiso','img_src',
+        'clave_vendedor', 'password','id_persona','id_permiso','img_src','status',
     ];
 
     /**

@@ -4,7 +4,7 @@
 <div class="container">
 <div class="row-fluid">
 
-<div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-md-10 col-xs-12 col-sm-10 col-lg-10">    <button class="btn btn-dark" style="width:100% !important" onclick="window.location.href='{{url('admin/Vendedor/create')}}';">Crear un nuevo Usuario</button>
+<div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-md-10 col-xs-12 col-sm-10 col-lg-10">    <button class="btn btn-dark" style="width:100% !important" onclick="window.location.href='{{url('admin/Servicios/create')}}';">Crear una nueva Servicios</button>
 </div>
 </div>
 
@@ -19,15 +19,7 @@
                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                           <thead>
                             <tr> 
-
-                                <td align="left">Imagen</td>
-                                <td align="left">Vendedor</td>
-                                <td align="left">Nombre</td> 
-                                <td align="left">Apellidos</td> 
-
-                                <td align="left">Permiso</td>
-
-                                <td align="left">Status</td>
+                                <td align="left">Servicios</td>
                                 <td align="center">Modificar</td>
                                 <td align="center">Eliminar</td>
 
@@ -36,20 +28,12 @@
                             </tr>
                           </thead>
                           <tbody>
-                            @foreach($vendedores as $vendedor)
-                            <tr valign="center">
+                            @foreach($servicios as $servicio)
+                            <tr>
+                                <td>{{$servicio->nombre}}</td>
+                                <td align="center"><button class="btn btn-success" onclick="window.location.href='{{url('admin/Servicios/'.$servicio->id.'/edit')}}';" >Modificar</button></td>
 
-                                <td valign="center" align="center"><img align="center" src="{{asset('assets/profile/'.$vendedor->id.'/'.$vendedor->img_src)}}" alt="..." class="img-responsive" width="40"></td>
-                                <td valign="center">{{$vendedor->clave_vendedor}}</td>
-                                <td valign="center">{{$vendedor->persona->nombre}}</td>
-
-                                <td valign="center">{{$vendedor->persona->apellidoPaterno.' '.$vendedor->persona->apellidoMaterno}}</td>
-                                <td valign="center">{{$vendedor->permisos->nombre}}</td>
-                                <td valign="center">@if($vendedor->status==1)  <img align="center" width="15px" class="center-block" src="{{asset('images/check.png')}}"><p lass="text-center" align="center">Activo</p>  @elseif($vendedor->status==0) <img width="15px" align="center" class="center-block" src="{{asset('images/not-check.png')}}"><p class="text-center" align="center"> Inactivo</p>@endif</td>
-                               
-                                <td valign="center" align="center"><button class="btn btn-success" onclick="window.location.href='{{url('admin/Vendedor/'.$vendedor->id.'/edit')}}';" >Modificar</button></td>
-
-                                <td valign="center" align="center"><button class="btn btn-danger" onclick='getOptionEliminar("{{url('admin/Vendedor/'.$vendedor->id)}}");'>Eliminar</button></td>
+                                <td align="center"><button class="btn btn-danger" onclick='getOptionEliminar("{{url('admin/Servicios/'.$servicio->id)}}");'>Eliminar</button></td>
                             </tr>
 
 
@@ -65,8 +49,8 @@
       
     </div>
 </div>
-                    <div id="dialog_eliminar" title="Eliminar Tipo de Vendedor" style="display:none">
-                   <p>¿Estas seguro que deseas Eliminar el Vendedor? </p>
+                    <div id="dialog_eliminar" title="Eliminar Tipo de Vehiculo" style="display:none">
+                   <p>¿Estas seguro que deseas Eliminar el Tipo de Automovil? </p>
 </div>
 <form method="POST" id="form">
   

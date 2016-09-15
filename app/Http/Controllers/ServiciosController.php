@@ -3,7 +3,7 @@
 namespace FinanciaSystem\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use FinanciaSystem\Servicios;
 use FinanciaSystem\Http\Requests;
 
 class ServiciosController extends Controller
@@ -15,7 +15,9 @@ class ServiciosController extends Controller
      */
     public function index()
     {
-        //
+        $servicioss=Servicios::all();
+        
+        return view('Servicios.index',['servicios'=>$servicioss]);
     }
 
     /**
@@ -25,7 +27,7 @@ class ServiciosController extends Controller
      */
     public function create()
     {
-        //
+        return view('Servicios.create');
     }
 
     /**
@@ -36,7 +38,18 @@ class ServiciosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'nombre'=>'required|max:255|unique:Servicios,nombre'
+            ]);
+
+        $servicios=Servicios::create([
+            'nombre'=>$request->nombre
+            ]);
+
+         $request->session()->flash('crear','Se ha creado un nuevo Serivicio con exito llamada '.$servicios->nombre);
+
+         return redirect('admin/Servicios/');
+       
     }
 
     /**
@@ -58,7 +71,9 @@ class ServiciosController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $servicios=Servicios::find($id);
+        return view('Servicios.update',['servicios'=>$servicios]);
     }
 
     /**
@@ -70,7 +85,18 @@ class ServiciosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'nombre'=>'required|max:255|unique:Servicios,nombre,'.$id
+            ]);
+        $servicios=Servicios::find($id);
+        $servicios->nombre=$request->nombre;
+        $request->session()->flash('actualizar','Se ha modificado el Servicio  con exito llamada '.$servicios->nombre);
+        $servicios->save();
+
+
+      
+        return redirect('admin/Servicios/');
+
     }
 
     /**
@@ -79,8 +105,13 @@ class ServiciosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        
+        $servicios=Servicios::find($id);
+         
+        $request->session()->flash('eliminar','Se ha Eliminado el Servicio con exito llamado '.$servicios->nombre);
+        $servicios->delete();
+        return redirect('admin/Servicios');
     }
 }

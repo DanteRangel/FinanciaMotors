@@ -48,9 +48,9 @@
       <div class="col-md-12">
         <div class="col-middle">
           <div class="text-center">
-            <h1 class="error-number">404</h1>
-            <h2>Pagina no Encotrada</h2>
-            <p>No se encontro la ruta esteblecida en el servidor.
+            <h1 class="error-number">Permiso Denegado</h1>
+            <h2>Solo Usuarios Administrador</h2>
+            <p>Reportar algun error con el desarrollador
             </p>
        
           </div>

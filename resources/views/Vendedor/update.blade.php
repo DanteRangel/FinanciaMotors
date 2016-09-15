@@ -135,6 +135,22 @@
                     </div>
                 </div>
                 </div>
+                        <div class="row" >
+                                  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                   <label for="">Status del Usuario</label>
+                    <div class="form-group">
+                        <select class="form-control" name="status" id="status">
+                            <option @if($vendedor->status==0) selected @endif value="0">Inactivo</option>
+                            <option @if($vendedor->status==1) selected @endif value="1">Activo</option>
+                            
+                        </select>
+
+                    </div>
+                      </div>
+                <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
+                
+                </div>
+                </div>
                 </div>
 
 
