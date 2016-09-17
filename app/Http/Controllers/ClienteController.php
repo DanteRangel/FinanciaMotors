@@ -5,7 +5,8 @@ namespace FinanciaSystem\Http\Controllers;
 use Illuminate\Http\Request;
 
 use FinanciaSystem\Http\Requests;
-
+use FinanciaSystem\Empresa;
+use FinanciaSystem\Cliente;
 class ClienteController extends Controller
 {
     /**
@@ -15,7 +16,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        
+        return view('Cliente.index',['clientes'=>Cliente::all()]);
     }
 
     /**
@@ -25,7 +27,8 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('Cliente.create',['empresas'=>Empresa::all() ]);
     }
 
     /**
@@ -36,7 +39,17 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            //    return $request->all();
+        $this->validate($request,[
+            'nombre'=>'required|string',
+            'apellidoPaterno'=>'required|string',
+            'apellidoMaterno'=>'required|string',
+            'correo'=>'required|string|unique:Persona,correo',
+            'telefono_cel'=>'numeric',
+            'telefono_otro'=>'numeric' 
+
+            ]);
+
     }
 
     /**
@@ -82,5 +95,15 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function selectEmpresa(){
+
+        $empresas=Empresa::all();
+        $html='<div class="form-group"><label for="empresa">Empresa</label><select class="form-control id="empresa" name="empresa" >';
+        foreach ($empresas as $key => $empresa) {
+            $html.="<option value='".$empresa->id."'>".$empresa->nombre."</option>";
+        }
+        $html.="</select></div>";
+        return $html;
     }
 }

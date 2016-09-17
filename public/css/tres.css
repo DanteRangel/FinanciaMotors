@@ -19,6 +19,11 @@ input[type="checkbox"] {
    opacity: 0.0 !important; /* FF/Chrome/Safari/Opera */
    cursor: pointer;  
 }
+input[type="radio"] {
+   filter: alpha(opacity=0); /* IE */
+   opacity: 0.0 !important; /* FF/Chrome/Safari/Opera */
+   cursor: pointer;  
+}
 .clase_check_verde,
 .clase_radio_verde {
     display: inline-block;

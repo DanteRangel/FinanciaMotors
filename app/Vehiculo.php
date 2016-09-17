@@ -33,8 +33,8 @@ class Vehiculo extends Model
   public function tipoVehiculo(){
     return $this->belongsTo('FinanciaSystem\tipoVehiculo', 'id_tipoVehiculo');
   }
-
-  public function servicios(){
-    return $this->belongsToMany('FinanciaSystem\Servicios_Vehiculo','id_servicio','id_vehiculo','precio','fecha');
-  }
+      public function servicios_vehiculo(){
+        return $this->hasMany('FinanciaSystem\Servicios_Vehiculos','id_vehiculo','id');
+    }
+ 
 }

@@ -4,7 +4,7 @@
 <div class="container">
 <div class="row-fluid">
 
-<div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-md-10 col-xs-12 col-sm-10 col-lg-10">    <button class="btn btn-dark" style="width:100% !important" onclick="window.location.href='{{url('admin/Vehiculo/create')}}';">Crear una nueva Vehiculo</button>
+<div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-md-10 col-xs-12 col-sm-10 col-lg-10">    <button class="btn btn-dark" style="width:100% !important" onclick="window.location.href='{{url('admin/Cliente/create')}}';">Crear un nuevo Usuario</button>
 </div>
 </div>
 
@@ -19,41 +19,37 @@
                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                           <thead>
                             <tr> 
-                                <td align="left">Vehiculo</td>
-                                <td align="left">Serie</td>
 
+                                <td align="left">Cliente</td>
+                                <td align="left">Nombre</td> 
+                                <td align="left">Apellidos</td> 
+                                <td align="left">Telefono</td> 
 
-                                <td align="left">Marca</td>
-                                <td align="left">Modelo</td>
-
-                                <td align="left">Tipo</td>
-
-                                <td align="left">Año</td>
-
-                                <td align="left">Transmisión </td>
-                                <td align="left">Descripción</td>
-                                <td align="center">Servicios</td> 
+                                <td align="left">Correo</td> 
+                                                               
+ 
+                                <td align="center">Modificar</td>
+                                <td align="center">Eliminar</td>
 
 
 
                             </tr>
                           </thead>
                           <tbody>
-                            @foreach($vehiculos as $vehiculo)
-                            <tr>
-                                <td>{{$vehiculo->nombre}}</td>
+                            @foreach($clientes as $cliente)
+                            <tr valign="center">
 
-                                <td>{{$vehiculo->serie}}</td>
-                                <td>{{$vehiculo->marca->nombre}}</td>
+                                <td valign="center">{{$cliente->clave_vendedor}}</td>
+                                <td valign="center">{{$cliente->persona->nombre}}</td>
 
-                                <td>{{$vehiculo->modelo}}</td>
-                                <td>{{$vehiculo->tipoVehiculo->tipo}}</td>
-                                <td>{{$vehiculo->anio}}</td>
-                                <td>{{$vehiculo->transmision}}</td>
-                                <td>{{$vehiculo->descripcion}}</td>
-                                <td align="center"><a class="btn btn-success" onclick="window.location.href='{{url('admin/Servicios_for_Vehiculo/'.$vehiculo->id.'/setServicios')}}';" ><li class="fa fa-list"></li></a></td>
+                                <td valign="center">{{$cliente->persona->apellidoPaterno.' '.$cliente->persona->apellidoMaterno}}</td>
+                                <td valign="center">{{$cliente->persona->telefono_cel}}</td>
+                              
+                                <td valign="center">{{$cliente->persona->correo}}</td>
+                              
+                                <td valign="center" align="center"><button class="btn btn-success" onclick="window.location.href='{{url('admin/Cliente/'.$cliente->id.'/edit')}}';" >Modificar</button></td>
 
-         
+                                <td valign="center" align="center"><button class="btn btn-danger" onclick='getOptionEliminar("{{url('admin/Cliente/'.$cliente->id)}}");'>Eliminar</button></td>
                             </tr>
 
 
@@ -69,8 +65,8 @@
       
     </div>
 </div>
-                    <div id="dialog_eliminar" title="Eliminar Tipo de Vehiculo" style="display:none">
-                   <p>¿Estas seguro que deseas Eliminar el Vehiculo? </p>
+                    <div id="dialog_eliminar" title="Eliminar Tipo de Cliente" style="display:none">
+                   <p>¿Estas seguro que deseas Eliminar el Cliente? </p>
 </div>
 <form method="POST" id="form">
   
@@ -129,5 +125,36 @@
 
 
 
+          function getOptionEliminar(url){
+ 
+
+  $("#dialog_eliminar").dialog({
+  buttons: [
+    {
+      text: "Si",
+      click: function() {
+ 
+            $('#form').attr('action',url);
+            $('#form').submit();
+            $( this ).dialog( "close" );
+    
+      }
+    },{
+      text:"No",
+      click:function(){
+            $( this ).dialog( "close" );
+
+      }
+
+
+    }
+  ]
+});
+
+ 
+
+
+    
+};
         </script>
 @endsection

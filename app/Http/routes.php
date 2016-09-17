@@ -33,12 +33,13 @@ Route::resource('tipoVehiculo','TipoVehiculoController');
 Route::resource('Marca','MarcasController');
 
 Route::resource('Cliente','ClienteController');
-
+Route::resource('Empresa','EmpresaController');
 Route::resource('Vendedor','VendedorController');
 
 Route::resource('Servicios','ServiciosController');
 
 Route::resource('Servicios_for_Vehiculo','Servicios_VehiculoController');
 
+Route::post('Cliente/selectEmpresa','ClienteController@selectEmpresa');
 Route::any('Servicios_for_Vehiculo/{id}/setServicios','Servicios_VehiculoController@setServicios');
 });

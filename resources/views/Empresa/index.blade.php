@@ -4,7 +4,7 @@
 <div class="container">
 <div class="row-fluid">
 
-<div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-md-10 col-xs-12 col-sm-10 col-lg-10">    <button class="btn btn-dark" style="width:100% !important" onclick="window.location.href='{{url('admin/Vehiculo/create')}}';">Crear una nueva Vehiculo</button>
+<div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-md-10 col-xs-12 col-sm-10 col-lg-10">    <button class="btn btn-dark" style="width:100% !important" onclick="window.location.href='{{url('admin/Empresa/create')}}';">Crear una nueva Empresa</button>
 </div>
 </div>
 
@@ -19,41 +19,26 @@
                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                           <thead>
                             <tr> 
-                                <td align="left">Vehiculo</td>
-                                <td align="left">Serie</td>
-
-
-                                <td align="left">Marca</td>
-                                <td align="left">Modelo</td>
-
-                                <td align="left">Tipo</td>
-
-                                <td align="left">Año</td>
-
-                                <td align="left">Transmisión </td>
-                                <td align="left">Descripción</td>
-                                <td align="center">Servicios</td> 
+                                <td align="left">Nombre</td>
+                                <td align="left">RFC</td>
+                                <td align="left">Razón Social</td>
+                                <td align="center">Modificar</td>
+                                <td align="center">Eliminar</td>
 
 
 
                             </tr>
                           </thead>
                           <tbody>
-                            @foreach($vehiculos as $vehiculo)
+                            @foreach($empresas as $empresa)
                             <tr>
-                                <td>{{$vehiculo->nombre}}</td>
+                                <td>{{$empresa->nombre}}</td>
 
-                                <td>{{$vehiculo->serie}}</td>
-                                <td>{{$vehiculo->marca->nombre}}</td>
+                                <td>{{$empresa->rfc}}</td>
+                                <td>{{$empresa->razon_social}}</td>
+                                <td align="center"><button class="btn btn-success" onclick="window.location.href='{{url('admin/Empresa/'.$empresa->id.'/edit')}}';" >Modificar</button></td>
 
-                                <td>{{$vehiculo->modelo}}</td>
-                                <td>{{$vehiculo->tipoVehiculo->tipo}}</td>
-                                <td>{{$vehiculo->anio}}</td>
-                                <td>{{$vehiculo->transmision}}</td>
-                                <td>{{$vehiculo->descripcion}}</td>
-                                <td align="center"><a class="btn btn-success" onclick="window.location.href='{{url('admin/Servicios_for_Vehiculo/'.$vehiculo->id.'/setServicios')}}';" ><li class="fa fa-list"></li></a></td>
-
-         
+                                <td align="center"><button class="btn btn-danger" onclick='getOptionEliminar("{{url('admin/Empresa/'.$empresa->id)}}");'>Eliminar</button></td>
                             </tr>
 
 
@@ -69,8 +54,8 @@
       
     </div>
 </div>
-                    <div id="dialog_eliminar" title="Eliminar Tipo de Vehiculo" style="display:none">
-                   <p>¿Estas seguro que deseas Eliminar el Vehiculo? </p>
+                    <div id="dialog_eliminar" title="Eliminar Empresa" style="display:none">
+                   <p>¿Estas seguro que deseas Eliminar a la Empresa? </p>
 </div>
 <form method="POST" id="form">
   
@@ -129,5 +114,36 @@
 
 
 
+          function getOptionEliminar(url){
+ 
+
+  $("#dialog_eliminar").dialog({
+  buttons: [
+    {
+      text: "Si",
+      click: function() {
+ 
+            $('#form').attr('action',url);
+            $('#form').submit();
+            $( this ).dialog( "close" );
+    
+      }
+    },{
+      text:"No",
+      click:function(){
+            $( this ).dialog( "close" );
+
+      }
+
+
+    }
+  ]
+});
+
+ 
+
+
+    
+};
         </script>
 @endsection

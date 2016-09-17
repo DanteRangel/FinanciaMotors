@@ -18,10 +18,10 @@ class Servicios extends Model
     ];
  
     public $timestamps=false;
+    public function servicios_vehiculo(){
+        return $this->hasMany('FinanciaSystem\Servicios_Vehiculos','id_servicio','id');
+    }
 
 
-
-  public function vehiculos(){
-    return $this->belongsToMany('FinanciaSystem\Servicios_Vehiculo','id_servicio','id_vehiculo','precio','fecha');
-  }
+  
  }

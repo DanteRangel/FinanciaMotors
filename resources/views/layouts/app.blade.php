@@ -27,6 +27,8 @@
     <link href="{{asset('css/icheck/flat/green.css')}}" rel="stylesheet" />
     <link href="{{asset('css/floatexamples.css')}}" rel="stylesheet" type="text/css" />
 
+    <link href="{{asset('css/tres.css')}}" rel="stylesheet" type="text/css" />
+
 
     <!--[if lt IE 9]>
     <script src="../assets/js/ie8-responsive-file-warning.js"></script>
@@ -100,6 +102,7 @@
                           <ul class="nav child_menu" style="display: none;">
                                <li ><a href="{{url('admin/Vehiculo/create')}}">Alta Vehiculo</a></li>
                                <li ><a href="{{url('admin/Vehiculo')}}">Modificar/Eliminar</a></li>
+                                <li ><a href="{{url('admin/Servicios_for_Vehiculo/')}}">Asignar Servicio a Vehiculo</a></li>
                                
                           </ul>
                         </li>
@@ -124,13 +127,7 @@
                             
                           </ul>
                         </li> 
-                        <li ><a>Servicios Vehiculos<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu" style="display: none;">
-                               <li ><a href="{{url('admin/Servicios_for_Vehiculo/')}}">Asignar Servicio a Vehiculo</a></li>
-                               <li ><a href="{{url('admin/Servicios_for_Vehiculo')}}">Vehiculos</a></li>
-                            
-                          </ul>
-                        </li> 
+                
                         
                             
              
@@ -145,6 +142,13 @@
                           <ul class="nav child_menu" style="display: none;">
                                <li ><a href="{{url('admin/Cliente/create')}}">Alta Clientes</a></li>
                                <li ><a href="{{url('admin/Cliente')}}">Modificar/Eliminar</a></li>
+                            
+                          </ul>
+                        </li>
+                            <li ><a>Empresa<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: none;">
+                               <li ><a href="{{url('admin/Empresa/create')}}">Alta Empresa</a></li>
+                               <li ><a href="{{url('admin/Empresa')}}">Modificar/Eliminar</a></li>
                             
                           </ul>
                         </li>

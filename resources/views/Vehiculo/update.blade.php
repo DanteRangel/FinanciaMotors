@@ -100,7 +100,7 @@
                         <div class="form-group{{ $errors->has('costo') ? ' has-error' : '' }}">
                             <label for="costo">Costo</label>
                             <div class="">
-                                <input type="number" class="form-control" name="costo" value="{{$vehiculo->costo }}" aria-describedby="usuario-addon" placeholder="123312.00">
+                                <input type="number"  step="any" class="form-control" name="costo" value="{{$vehiculo->costo }}" aria-describedby="usuario-addon" placeholder="123312.00">
 
 
                             </div>
