@@ -9,7 +9,7 @@
 </div>
 
     <div class="row-fluid">
-        <div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-md-10 col-xs-12 col-sm-10 col-lg-10">
+        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
                 <div class="row">
                   <div class="x_panel">
                                          
@@ -20,6 +20,8 @@
                           <thead>
                             <tr> 
                                 <td align="left">Vehiculo</td>
+
+                                <td align="left">Descripción</td>
                                 <td align="left">Serie</td>
 
 
@@ -29,11 +31,8 @@
                                 <td align="left">Tipo</td>
 
                                 <td align="left">Año</td>
-
-                                <td align="left">Transmisión </td>
-                                <td align="left">Descripción</td>
-                                <td align="center">Modificar</td>
-                                <td align="center">Eliminar</td>
+ 
+                                <td align="center">Acciones</td> 
 
 
 
@@ -44,17 +43,21 @@
                             <tr>
                                 <td>{{$vehiculo->nombre}}</td>
 
+                                <td>{{$vehiculo->descripcion}}</td>
                                 <td>{{$vehiculo->serie}}</td>
                                 <td>{{$vehiculo->marca->nombre}}</td>
 
                                 <td>{{$vehiculo->modelo}}</td>
                                 <td>{{$vehiculo->tipoVehiculo->tipo}}</td>
-                                <td>{{$vehiculo->anio}}</td>
-                                <td>{{$vehiculo->transmision}}</td>
-                                <td>{{$vehiculo->descripcion}}</td>
-                                <td align="center"><button class="btn btn-success" onclick="window.location.href='{{url('admin/Vehiculo/'.$vehiculo->id.'/edit')}}';" >Modificar</button></td>
-
-                                <td align="center"><button class="btn btn-danger" onclick='getOptionEliminar("{{url('admin/Vehiculo/'.$vehiculo->id)}}");'>Eliminar</button></td>
+                                <td>{{$vehiculo->anio}}</td> 
+                                <td align="center">
+                                  <table>
+                                  <tr><td>
+                                  <button class="btn btn-success" onclick="window.location.href='{{url('admin/Vehiculo/'.$vehiculo->id.'/edit')}}';" ><i class="fa fa-edit"></i></button>
+                                  </td><td>
+                                <button class="btn btn-danger" onclick='getOptionEliminar("{{url('admin/Vehiculo/'.$vehiculo->id)}}");'><i class="fa fa-minus"></i></button>
+                                </td></tr></table>
+                                </td>
                             </tr>
 
 

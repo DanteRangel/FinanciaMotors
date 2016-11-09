@@ -169,8 +169,10 @@
                 </li>
                        <li><a><i class="fa fa-shopping-cart"></i> Ventas <span class="fa fa-chevron-down"></span></a> 
                           <ul class="nav child_menu" style="display: none;">
-                               <li ><a href="{{url('admin/Vendedor/create')}}">Contabilidad</a></li>
-                               <li ><a href="{{url('admin/Vendedor')}}">Ventas</a></li>
+                               <li ><a href="#">Contabilidad</a></li>
+                               <li ><a href="{{url('Ventas')}}">Ventas</a></li>
+
+                               <li ><a href="{{url('Prospeccion')}}">Prospeccion</a></li>
                             
                           </ul>
                         </li>
@@ -226,11 +228,11 @@
                    
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-user">  {{Auth::user()->persona->nombre}}  </i>
+                 <img src="{{asset('assets/profile/'.Auth::user()->id.'/'.Auth::user()->img_src)}}" > {{Auth::user()->persona->nombre}}
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-        
+                  <li><a href="{{url('admin/Vendedor/'.Auth::user()->id.'/edit')}}"><i class="fa fa-user  pull-right"></i>Perfil</a></li>
                   <li><a href="{{ url('logout')}}"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a>
                   </li>
                 </ul>

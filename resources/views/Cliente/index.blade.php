@@ -39,7 +39,7 @@
                             @foreach($clientes as $cliente)
                             <tr valign="center">
 
-                                <td valign="center">{{$cliente->clave_vendedor}}</td>
+                                <td valign="center">{{$cliente->clave_cliente}}</td>
                                 <td valign="center">{{$cliente->persona->nombre}}</td>
 
                                 <td valign="center">{{$cliente->persona->apellidoPaterno.' '.$cliente->persona->apellidoMaterno}}</td>

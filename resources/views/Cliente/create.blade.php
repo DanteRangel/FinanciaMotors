@@ -10,62 +10,39 @@
 
             <div class="row">
                 <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
-                    <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
+                    <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <div class="">
-                            <input type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" aria-describedby="usuario-addon" placeholder="Nombre Usuario">
-
-                        </div>
-                        @if ($errors->has('nombre'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('nombre') }}</strong>
-                        </span>
-                        @endif
+                             <input type="text" class="form-control" id="nombre" name="nombre"  aria-describedby="usuario-addon" placeholder="Nombre Usuario">
+ 
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
-                    <div class="form-group{{ $errors->has('apellidoPaterno') ? ' has-error' : '' }}">
+                    <div class="form-group">
                         <label for="apellidoPaterno">Apellido Paterno</label>
-                        <div class="">
-                            <input type="text" class="form-control" name="apellidoPaterno" value="{{ old('apellidoPaterno') }}" aria-describedby="usuario-addon" placeholder="Apellido Paterno del Usuario">
-
-                        </div>
-                        @if ($errors->has('apellidoPaterno'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('apellidoPaterno') }}</strong>
-                        </span>
-                        @endif
-                    </div>
+                             <input type="text" class="form-control" name="apellidoPaterno" id="apellidoPaterno"  aria-describedby="usuario-addon" placeholder="Apellido Paterno del Usuario">
+                  </div>
                 </div>
 
             </div>       
             <div class="row">
                 <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
-                    <div class="form-group{{ $errors->has('apellidoMaterno') ? ' has-error' : '' }}">
+                    <div class="form-group{">
                         <label for="apellidoMaterno">Apellido Materno</label>
                         <div class="">
-                            <input type="text" class="form-control" name="apellidoMaterno" value="{{ old('apellidoMaterno') }}" aria-describedby="usuario-addon" placeholder="Apellido Materno del Usuario">
+                            <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno" aria-describedby="usuario-addon" placeholder="Apellido Materno del Usuario">
 
                         </div>
-                        @if ($errors->has('apellidoMaterno'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('apellidoMaterno') }}</strong>
-                        </span>
-                        @endif
+                  
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
-                    <div class="form-group{{ $errors->has('correo') ? ' has-error' : '' }}">
+                    <div class="form-group">
                         <label for="correo">Correo Electrónico</label>
-                        <div class="">
-                            <input type="text" class="form-control" name="correo" id="correo" value="{{ old('correo') }}" aria-describedby="usuario-addon" placeholder="Correo Electrónico del Usuario">
+                       
+                            <input type="text" class="form-control" name="correo" id="correo" aria-describedby="usuario-addon" placeholder="Correo Electrónico del Usuario">
 
-                        </div>
-                        @if ($errors->has('correo'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('correo') }}</strong>
-                        </span>
-                        @endif
+                        
+                   
                     </div>
                 </div>
 
@@ -74,52 +51,38 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
-                    <div class="form-group{{ $errors->has('telefono_cel') ? ' has-error' : '' }}">
+                    <div class="form-group">
                         <label for="telefono_cel">Telefono Celular</label>
-                        <div class="">
-                            <input type="text" class="form-control" name="telefono_cel" value="{{ old('telefono_cel') }}" aria-describedby="usuario-addon" placeholder="Telefono Celular del Usuario">
+                        
 
-                        </div>
-                        @if ($errors->has('telefono_cel'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('telefono_cel') }}</strong>
-                        </span>
-                        @endif
+                            <input type="text" class="form-control" id="telefono_cel" name="telefono_cel" aria-describedby="usuario-addon" placeholder="Telefono Celular del Usuario">
+                        
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
-                <div class="form-group{{ $errors->has('telefono_otro') ? ' has-error' : '' }}">
+                <div class="form-group">
                 <label for="telefono_otro">Otro Telefono</label>
                         
-                        <input type="text" class="form-control" name="telefono_otro" value="{{ old('telefono_otro') }}" aria-describedby="usuario-addon" placeholder="Otro Telefono">
- 
-                        @if ($errors->has('telefono_otro'))
-                        <span class="help-block">
-                        <strong>{{ $errors->first('telefono_otro') }}</strong>
-                        </span>
-                        @endif
+                        <input type="text" class="form-control" name="telefono_otro" id="telefono_otro"  aria-describedby="usuario-addon" placeholder="Otro Telefono">
+  
                     </div>
                 </div>
 
 
             </div>
    
-        </form>
+     
  <div class="row">
-<div class="col-md-6 col-xs-12 col-lg-6 col-sm-6 text.center">
-         
-   <label>Empresa:</label><br>
-                     
-                       Asociar Empresa 
-                         <div class="label_check" >
-        
+ <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
+    <label>Empresa:</label>
+      Asociar Empresa 
+                         <div class="label_check" > 
                         <input type="radio" class="empresa_radio" name="pivot_empresa" id="aEmpresa" value="true"  ></div> &nbsp; No Asociar Empresa
                           <div class="label_check" >
         
-                        <input type="radio" class="empresa_radio" name="pivot_empresa" id="nEmpresa" value="false" > </div>
-                      </p>
-
-</div>
+                        <input type="radio" class="empresa_radio" name="pivot_empresa" id="nEmpresa" value="false" checked="" > </div>
+                     
+</div> 
                 <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6 text.center">
                             <div class="row-fluid" id="div_empresa">
                                 
@@ -127,12 +90,65 @@
                 </div>
 
             </div>
+<br>
+<div class="row">
+    <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                <label for="telefono_otro">Vehículo de Interes</label>
+                        
+                        <input type="text" class="form-control" name="vehiculo_interes" id="vehiculo_interes"  aria-describedby="usuario-addon" placeholder="Vehiculo de Interes">
+  
+                    </div>
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6">
+        
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-md-6 col-sm-6 col-lg-12 col-xs-12">
+            <label>Credito:</label>
+      Si
+                         <div class="label_check" > 
+                        <input type="radio" class="check credito_pivot" name="credito_pivot" id="si_credito" value="true"  ></div> &nbsp; No 
+                          <div class="label_check" >
+        
+                        <input type="radio" class="check credito_pivot" name="credito_pivot" id="no_credito" value="false" checked="" > </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-lg-12 col-xs-12">
+    
+    </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" id="formContado">
+        
+    </div>
+    
+</div>
+<br>
+<div class="row">
+    <div class="col-md-6 col-sm-6 col-lg-12 col-xs-12">
+            <label>¿Vehiculo a Cuenta?:</label>
+      Si
+                         <div class="label_check" > 
+                        <input type="radio" class="check vehiculo_cuenta" name="vehiculo_cuenta" id="si_credito" value="true"  ></div> &nbsp; No 
+                          <div class="label_check" >
+        
+                        <input type="radio" class="check vehiculo_cuenta" name="vehiculo_cuenta" id="no_credito" value="false" checked="" > </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-lg-12 col-xs-12">
+    
+    </div>
+</div>
+
             <div class="row">
                      <br>
                     <button type="button"  onclick="crear()" class="btn btn-dark" ><span>Ingresar</span></button>
             </div>
 
-       
+          </form>
 
     </div>
 </div>
@@ -148,13 +164,38 @@
 $(document).ready(function(){
  
 
- 
+            if($(this).val()==true){
+alert($(this).val());
+ datos='_token={{csrf_token()}}&_method=POST';
+ //alert(datos);
+            $.ajax({
+                url:"{{url('admin/Cliente/formContado')}}",
+                type:'POST',
+                data:datos,
+                success:function(response){
+                    $('#formContado').html(response);
+                    
+
+
+                }
+
+            });
+
+
+    
+            }
+    });
  
    $("input[type='radio']").each(toggleCheck_radio);  
  /* Esta funcion cambia la imagen a mostrar */
  /* (que se encuentra en el elemento padre */
  /* del check) ya sea si el checklist */
  /* está activo como si no lo está*/
+ $('.check').click(function(){
+
+      $("input[type='radio']").click(toggleCheck_radio);
+      $("input[type='radio']").each(toggleCheck_radio);  
+ });
     $('.empresa_radio').click(function(){
         
 
@@ -193,10 +234,42 @@ $(document).ready(function(){
             {
                 text: "Si",
                 click: function() {
+      $('.spans').remove();
+            $('input').each(function(){
+                            $(this).parent('div').removeClass('has-error');
+                     
 
 
-                    $('#crear').submit();
+                      });
 
+                    //console.log($('#crear').serializeArray());
+                 //   $('#crear').submit();
+                    $.ajax({
+                        data:$('#crear').serialize(),
+                        url:$('#crear').attr('action'),
+                        type:'POST',
+                        success:function(response){
+
+                     if(response.error_permisos=='1'){
+                      window.location="{{url('ErrorEnLosPermisos')}}";
+                    }
+                 // console.log(response);
+                   if(response.success=='0'){
+                          window.location=response.url;
+                   }else{ 
+                     objeto_errores=response.errors;
+                    for(propiedad in objeto_errores){ 
+
+                      $('#'+propiedad).parent('div').addClass('has-error');
+                      $('#'+propiedad).parent('div').append('  <span  class="spans help-block"><strong>'+  objeto_errores[propiedad][0]+'</strong></span>');
+                        
+                    }
+
+    }
+
+                
+                        }
+                    });
                     $( this ).dialog( "close" );
 
                 }

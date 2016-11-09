@@ -79,21 +79,19 @@
               </div>
               <div class="row-fluid">
                    <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
-
-                        <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
-                            <label for="color">Color</label>
+       <div class="form-group{{ $errors->has('precio') ? ' has-error' : '' }}">
+                            <label for="precio">Precio</label>
                             <div class="">
-                                <input type="text" class="form-control" name="color" value="{{ old('color') }}" aria-describedby="usuario-addon" placeholder="Ejemplo : Blanco
-">
+                                <input type="number" class="form-control" name="precio" value="{{ old('precio') }}"  step="any" aria-describedby="usuario-addon" placeholder="123312.00">
 
 
                             </div>
-                            @if ($errors->has('color'))
+                            @if ($errors->has('precio'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('color') }}</strong>
-                            </span>
-                            @endif
+                                <strong>{{ $errors->first('precio') }}</strong>
+                            </span>                @endif
                         </div>
+
                     </div>
                    <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
 
@@ -163,7 +161,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
-                        <label for="">Trasnimisión</label>
+                        <label for="">Transmisión</label>
                             <div class="form-group">
                                     <select class="form-control" name="transmision" id="transmision">
                                        
@@ -200,20 +198,45 @@
                         </div>
                         </div>
                     <div class="row-fluid">
-                                            <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
+                                                   <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
                         <label for="">Factura</label>
                             <div class="form-group">
                                     <select class="form-control" name="factura" id="factura">
                                        
                                         <option value="0">Sin Factura</option>
-                                        <option value="1">Facturado Original</option>
-                                        <option value="2">Facturamos a nombre del Cliente</option>
-                                        
+                                        <option value="1">Factura Original</option>
+
+                                        <option value="2">Factura de Empresa</option>
+                                        <option value="3">Facturamos a nombre del Cliente</option>
+
+                                        <option value="4">Factura de agencia</option>
+                                         
                                     </select>
                              
                             </div>
-                        </div> 
-          
+                        </div>
+                                            <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
+                                                <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
+                            <label for="color">Color</label>
+                            <div class="">
+                                <input type="text" class="form-control" name="color" value="{{ old('color') }}" aria-describedby="usuario-addon" placeholder="Ejemplo : Blanco
+">
+
+
+                            </div>
+                            @if ($errors->has('color'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('color') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+
+                        </div>
+                   
+
+                    </div> 
+           <div class="row">
+                   
                         <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6 text.center">
                              <br>
                                 <button type="button"  onclick="crear()" class="btn btn-dark" ><span>Ingresar</span></button>

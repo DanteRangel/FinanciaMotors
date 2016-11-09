@@ -47,7 +47,7 @@
                         <div class="form-group{{ $errors->has('modelo') ? ' has-error' : '' }}">
                             <label for="modelo">Modelo</label>
                             <div class="">
-                                <input type="text" class="form-control" name="modelo" value="{{ $vehiculo->modelo }}" aria-describedby="usuario-addon" placeholder="Ejemplo : JETTA
+                                <input type="text" class="form-control" name="modelo" value="{{ $vehiculo->modelo}}" aria-describedby="usuario-addon" placeholder="Ejemplo : JETTA
 ">
 
 
@@ -163,7 +163,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
-                        <label for="">Trasnimisión</label>
+                        <label for="">Transmisión</label>
                             <div class="form-group">
                                     <select class="form-control" name="transmision" id="transmision">
                                        
@@ -207,15 +207,29 @@
                                        
                                         <option @if($vehiculo->factura == 0) selected @endif value="0">Sin Factura</option>
                                         <option @if($vehiculo->factura == 1) selected @endif value="1">Facturado Original</option>
-                                        <option @if($vehiculo->factura == 2) selected @endif value="2">Facturamos a nombre del Cliente</option>
-                                        
-                                    </select>
+                                         <option @if($vehiculo->factura == 2) selected @endif value="2">Factura de Empresa</option>
+                                        <option @if($vehiculo->factura == 3) selected @endif value="3">Facturamos a nombre del Cliente</option>
+                                        <option @if($vehiculo->factura == 4) selected @endif value="4">Factura de agencia</option> 
+                                      </select>
                              
                             </div>
                         </div> 
                         <div class="col-md-6 col-xs-12 col-lg-6 col-sm-6">
+                                                <div class="form-group{{ $errors->has('precio') ? ' has-error' : '' }}">
+                            <label for="costo">Precio</label>
+                            <div class="">
+                                <input type="number"  step="any" class="form-control" name="precio" value="{{$vehiculo->precio }}" aria-describedby="usuario-addon" placeholder="123312.00">
+
+
+                            </div>
+                            @if ($errors->has('precio'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('precio') }}</strong>
+                            </span>
+                            @endif
+                        </div>
                             <div>
-                                        &nbsp;
+                                    
                             </div>
                         </div>
                     </div>

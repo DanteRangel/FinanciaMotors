@@ -14,7 +14,7 @@ class Vehiculo extends Model
     protected $table="Vehiculo";
 
     protected $fillable = [
-        'nombre', 'anio','fecha_llegada','fecha_salida','status','color','transmision','descripcion','costo','factura','serie','id_tipoVehiculo','id_marca','kilometraje'
+        'nombre', 'anio','fecha_llegada','fecha_salida','status','color','transmision','descripcion','costo','factura','serie','id_tipoVehiculo','id_marca','kilometraje','modelo','precio'
     ];
 
     /**
@@ -36,5 +36,7 @@ class Vehiculo extends Model
       public function servicios_vehiculo(){
         return $this->hasMany('FinanciaSystem\Servicios_Vehiculos','id_vehiculo','id');
     }
- 
+  public function ventas(){
+    return $this->hasOne('FinanciaSystem\Ventas','id_vehiculo','id');
+  }
 }

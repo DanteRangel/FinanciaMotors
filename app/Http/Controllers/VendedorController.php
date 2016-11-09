@@ -80,12 +80,11 @@ class VendedorController extends Controller
         $url =  '/assets/profile/'.$user->id.'/'.$nombreImagen;
           Storage::disk('public')->put($url , file_get_contents($request->file('imagen_user')->getRealPath()));
 
+ 
+        $user->clave_vendedor='V-'.$user->id;
 
-        $Vendedor=Vendedor::find($user->id);
-        $Vendedor->clave_vendedor='V-'.$user->id;
-
-  $request->session()->flash('crear','Se ha creado un nuevo usuario con su clave '.$Vendedor->clave_vendedor);
-        $Vendedor->save();
+  $request->session()->flash('crear','Se ha creado un nuevo usuario con su clave '.$user->clave_vendedor);
+        $user->save();
 
 
 

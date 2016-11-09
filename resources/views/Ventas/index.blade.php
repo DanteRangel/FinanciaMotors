@@ -4,7 +4,7 @@
 <div class="container">
 <div class="row-fluid">
 
-<div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-md-10 col-xs-12 col-sm-10 col-lg-10">    <button class="btn btn-dark" style="width:100% !important" onclick="window.location.href='{{url('admin/Vendedor/create')}}';">Crear un nuevo Usuario</button>
+<div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-md-10 col-xs-12 col-sm-10 col-lg-10">    <button class="btn btn-dark" style="width:100% !important" onclick="window.location.href='{{url('admin/Ventas/create')}}';">Crear un nuevo Usuario</button>
 </div>
 </div>
 
@@ -20,14 +20,17 @@
                           <thead>
                             <tr> 
 
-                                <td align="left">Imagen</td>
-                                <td align="left">Vendedor</td>
-                                <td align="left">Nombre</td> 
-                                <td align="left">Apellidos</td> 
+                                <td align="left">Cliente</td>
+                                <td align="left">Vendedor</td> 
+                                <td align="left">Fecha</td> 
+                                <td align="left">Precio Venta</td>
 
-                                <td align="left">Permiso</td>
+                                <td align="left">Costro del Vehiculo</td> 
+                                <td align="left">Costro de los Servicio</td> 
+                                <td align="left">Vehiculo</td> 
 
-                                <td align="left">Status</td>
+                                                               
+ 
                                 <td align="center">Modificar</td>
                                 <td align="center">Eliminar</td>
 
@@ -36,20 +39,30 @@
                             </tr>
                           </thead>
                           <tbody>
-                            @foreach($vendedores as $vendedor)
+
+                            @foreach($ventas as $venta)
                             <tr valign="center">
 
-                                <td valign="center" align="center"><img align="center" src="{{asset('assets/profile/'.$vendedor->id.'/'.$vendedor->img_src)}}" alt="..." class="img-responsive" width="40"></td>
-                                <td valign="center">{{$vendedor->clave_vendedor}}</td>
-                                <td valign="center">{{$vendedor->persona->nombre}}</td>
+                                <td valign="center"><a href="">{{$venta->cliente->persona->nombre.' '.$venta->cliente->persona->apellidoPaterno.' '.$venta->cliente->persona->apellidoMaterno}}</a></td>
+                                <td valign="center"><a href="">{{$venta->vendedor->persona->nombre.' '.$venta->vendedor->persona->apellidoPaterno.' '.$venta->vendedor->persona->apellidoMaterno}}</a></td>
 
-                                <td valign="center">{{$vendedor->persona->apellidoPaterno.' '.$vendedor->persona->apellidoMaterno}}</td>
-                                <td valign="center">{{$vendedor->permisos->nombre}}</td>
-                                <td valign="center">@if($vendedor->status==1)  <img align="center" width="15px" class="center-block" src="{{asset('images/check.png')}}"><p lass="text-center" align="center">Activo</p>  @elseif($vendedor->status==0) <img width="15px" align="center" class="center-block" src="{{asset('images/not-check.png')}}"><p class="text-center" align="center"> Inactivo</p>@endif</td>
-                               
-                                <td valign="center" align="center"><button class="btn btn-success" onclick="window.location.href='{{url('admin/Vendedor/'.$vendedor->id.'/edit')}}';" >Modificar</button></td>
+                                <td valign="center">{{$venta->fecha_compra}}</td>
+                                <td valign="center"><h5><a href="{{url('admin/Servicios_for_Vehiculo/'.$venta->id_vehiculo.'/setServicios')}}">${{number_format($venta->precio_venta,2)}}</a></h5></td>
+                                <td valign="center"><h5><a href="{{url('admin/Servicios_for_Vehiculo/'.$venta->id_vehiculo.'/setServicios')}}">${{number_format($venta->vehiculo->costo,2)}}</a></h5></td>
 
-                                <td valign="center" align="center"><button class="btn btn-danger" onclick='getOptionEliminar("{{url('admin/Vendedor/'.$vendedor->id)}}");'>Eliminar</button></td>
+                                <td valign="center"><h5><a href="{{url('admin/Servicios_for_Vehiculo/'.$venta->id_vehiculo.'/setServicios')}}">$<?php 
+                            $costo_servicios=0;
+                            foreach($venta->vehiculo->servicios_vehiculo as $servicio){
+                                    $costo_servicios+=$servicio->costo;
+                            }
+                            echo ' '.number_format($costo_servicios,2);
+                            ?></a></h5></td>
+                              
+                                <td valign="center">{{$venta->vehiculo->nombre.' '.$venta->vehiculo->marca->nombre}}</td>
+                              
+                                <td valign="center" align="center"><button class="btn btn-success" onclick="window.location.href='{{url('admin/Ventas/'.$venta->id.'/edit')}}';" >Modificar</button></td>
+
+                                <td valign="center" align="center"><button class="btn btn-danger" onclick='getOptionEliminar("{{url('admin/Ventas/'.$venta->id)}}");'>Eliminar</button></td>
                             </tr>
 
 
@@ -65,8 +78,8 @@
       
     </div>
 </div>
-                    <div id="dialog_eliminar" title="Eliminar Tipo de Vendedor" style="display:none">
-                   <p>¿Estas seguro que deseas Eliminar el Vendedor? </p>
+                    <div id="dialog_eliminar" title="Eliminar Tipo de Ventas" style="display:none">
+                   <p>¿Estas seguro que deseas Eliminar el Ventas? </p>
 </div>
 <form method="POST" id="form">
   
@@ -135,7 +148,6 @@
       click: function() {
  
             $('#form').attr('action',url);
-              
             $('#form').submit();
             $( this ).dialog( "close" );
     

@@ -20,7 +20,7 @@ Route::get('/contra/{contra}',function($contra){
 });
 
 Route::auth();
-
+Route::resource('Ventas','VentasController');
 Route::get('/home', 'HomeController@index');
 Route::get('/user',function(){
 	return Auth::user()->persona->nombre;
@@ -41,5 +41,7 @@ Route::resource('Servicios','ServiciosController');
 Route::resource('Servicios_for_Vehiculo','Servicios_VehiculoController');
 
 Route::post('Cliente/selectEmpresa','ClienteController@selectEmpresa');
+
+Route::post('Cliente/formContado','ClienteController@formContado');
 Route::any('Servicios_for_Vehiculo/{id}/setServicios','Servicios_VehiculoController@setServicios');
 });

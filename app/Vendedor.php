@@ -35,7 +35,9 @@ class Vendedor extends Model
   public function permisos(){
     return $this->belongsTo('FinanciaSystem\Permiso', 'id_permiso');
   }
-
+  public function ventas(){
+    return $this->hasMany('FinanciaSystem\Ventas','id_vendedor','id');
+  }
  
 
 }

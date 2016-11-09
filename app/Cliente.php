@@ -28,4 +28,8 @@ class Cliente extends Model
         return $this->hasOne('FinanciaSystem\Empresa','id','id_empresa');
       }
 
+  public function ventas(){
+    return $this->hasMany('FinanciaSystem\Ventas','id_cliente','id');
+  }
+
 }

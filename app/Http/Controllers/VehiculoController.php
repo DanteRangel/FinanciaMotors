@@ -60,7 +60,8 @@ class VehiculoController extends Controller
             'tipoVehiculo'=>'required',
             'marca'=>'required',
             'status'=>'required',
-             'factura'=>'required'
+             'factura'=>'required',
+             'precio'=>'required',
 
             ]);
 
@@ -78,7 +79,8 @@ class VehiculoController extends Controller
             'transmision'=>$request->transmision,
             'id_tipoVehiculo'=>$request->tipoVehiculo,
             'id_marca'=>$request->marca,
-            'status'=>$request->status
+            'status'=>$request->status,
+            'precio'=>$request->precio
             ]);
                 $request->session()->flash('crear','Se ha creado un  Vehiculo con exito. Serie : '.$vehiculo->serie);
         return redirect('admin/Vehiculo');
@@ -133,7 +135,8 @@ class VehiculoController extends Controller
             'tipoVehiculo'=>'required',
             'marca'=>'required',
             'status'=>'required',
-             'factura'=>'required'
+             'factura'=>'required',
+             'precio'=>'required'
 
             ]);
 
@@ -150,6 +153,7 @@ class VehiculoController extends Controller
             $vehiculo->id_tipoVehiculo=$request->tipoVehiculo;
             $vehiculo->id_marca=$request->marca;
             $vehiculo->status=$request->status;
+            $vehiculo->precio=$request->precio;
             $vehiculo->save();
             
 
