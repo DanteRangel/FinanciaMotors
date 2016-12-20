@@ -44,4 +44,9 @@ Route::post('Cliente/selectEmpresa','ClienteController@selectEmpresa');
 
 Route::post('Cliente/formContado','ClienteController@formContado');
 Route::any('Servicios_for_Vehiculo/{id}/setServicios','Servicios_VehiculoController@setServicios');
+
+});
+
+Route::group(['prefix'=>'Prospeccion','middleware'=>'admin'],function(){
+	Route::get('primera_etapa','ProspeccionController@primera_etapa');
 });

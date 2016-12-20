@@ -172,7 +172,7 @@
                                <li ><a href="#">Contabilidad</a></li>
                                <li ><a href="{{url('Ventas')}}">Ventas</a></li>
 
-                               <li ><a href="{{url('Prospeccion')}}">Prospeccion</a></li>
+                               <li ><a href="{{url('Prospeccion/primera_etapa')}}">Prospeccion</a></li>
                             
                           </ul>
                         </li>
