@@ -31,5 +31,5 @@ class Cliente extends Model
   public function ventas(){
     return $this->hasMany('FinanciaSystem\Ventas','id_cliente','id');
   }
-
+ 
 }

@@ -427,6 +427,7 @@
         <script src="{{asset('js/datatables/responsive.bootstrap.min.js')}}"></script>
         <script src="{{asset('js/datatables/dataTables.scroller.min.js')}}"></script>
         <script src="{{asset('js/pace/pace.min.js')}}"></script>
+        <script src="{{asset('js/template.js')}}"></script>
 
 <script type="text/javascript" src="{{ asset('js/bootstrap-filestyle.min.js') }}"> </script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}

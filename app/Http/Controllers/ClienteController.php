@@ -45,7 +45,7 @@ class ClienteController extends Controller
             'nombre'=>'required|string',
             'apellidoPaterno'=>'required|string',
             'apellidoMaterno'=>'required|string',
-            'correo'=>'required|string|unique:Persona,correo',
+            'correo'=>'email|required|string|unique:Persona,correo',
             'telefono_cel'=>'numeric',
             'telefono_otro'=>'numeric' 
 
@@ -82,7 +82,7 @@ class ClienteController extends Controller
 
 
          //return redirect('admin/Cliente/');
-        return ['success'=>'0','url'=>'admin/Cliente'];
+        return ['success'=>'0','url'=>'admin/Cliente','message'=>'Se ha creado un nuevo cliente con su clave '.$cliente->clave_cliente];
     }
     }
 

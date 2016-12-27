@@ -91,57 +91,7 @@
 
             </div>
 <br>
-<div class="row">
-    <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6">
-                        <div class="form-group">
-                <label for="telefono_otro">Vehículo de Interes</label>
-                        
-                        <input type="text" class="form-control" name="vehiculo_interes" id="vehiculo_interes"  aria-describedby="usuario-addon" placeholder="Vehiculo de Interes">
-  
-                    </div>
-    </div>
-    <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6">
-        
-    </div>
-    
-</div>
-<div class="row">
-    <div class="col-md-6 col-sm-6 col-lg-12 col-xs-12">
-            <label>Credito:</label>
-      Si
-                         <div class="label_check" > 
-                        <input type="radio" class="check credito_pivot" name="credito_pivot" id="si_credito" value="true"  ></div> &nbsp; No 
-                          <div class="label_check" >
-        
-                        <input type="radio" class="check credito_pivot" name="credito_pivot" id="no_credito" value="false" checked="" > </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-lg-12 col-xs-12">
-    
-    </div>
-</div>
 
-<br>
-<div class="row">
-    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" id="formContado">
-        
-    </div>
-    
-</div>
-<br>
-<div class="row">
-    <div class="col-md-6 col-sm-6 col-lg-12 col-xs-12">
-            <label>¿Vehiculo a Cuenta?:</label>
-      Si
-                         <div class="label_check" > 
-                        <input type="radio" class="check vehiculo_cuenta" name="vehiculo_cuenta" id="si_credito" value="true"  ></div> &nbsp; No 
-                          <div class="label_check" >
-        
-                        <input type="radio" class="check vehiculo_cuenta" name="vehiculo_cuenta" id="no_credito" value="false" checked="" > </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-lg-12 col-xs-12">
-    
-    </div>
-</div>
 
             <div class="row">
                      <br>
@@ -184,7 +134,7 @@ alert($(this).val());
 
     
             }
-    });
+  
  
    $("input[type='radio']").each(toggleCheck_radio);  
  /* Esta funcion cambia la imagen a mostrar */
