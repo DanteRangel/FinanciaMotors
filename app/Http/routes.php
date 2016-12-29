@@ -50,4 +50,5 @@ Route::any('Servicios_for_Vehiculo/{id}/setServicios','Servicios_VehiculoControl
 Route::group(['prefix'=>'Prospeccion','middleware'=>'admin'],function(){
 	Route::get('primera_etapa','ProspeccionController@primera_etapa');
 	Route::get('getOptionCliente','ProspeccionController@getOptionCliente');
+	Route::post('primera_etapa','ProspeccionController@primera_etapa_guardar');
 });

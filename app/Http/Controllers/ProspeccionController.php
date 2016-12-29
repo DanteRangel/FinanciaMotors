@@ -13,6 +13,9 @@ class ProspeccionController extends Controller
     	$clientes=Cliente::all();
     	return view('Prospeccion.primera_etapa',['clientes'=>$clientes]);
     }
+    public function primera_etapa_guardar(Request $request){
+    	return $request->all();
+    }
     public function getOptionCliente(){
 		$clientes=Cliente::all();
     	$html ='<option value="null">Elige a un cliente para la prospección</option>';
