@@ -2,42 +2,44 @@
 
 @section('content') 
 
-{!! Form::open(['url' => 'Prospeccion/primera_etapa','id'=>'alta_proscpeccion']) !!}
+{!! Form::open(['url' => 'Prospeccion/primera_etapa','id'=>'alta_prospeccion']) !!}
 <div class="row">
 	<div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
-		{!!Form::label('cliente', 'Cliente', ['class' => '']);!!}
-		<select name="cliente" id="cliente" class="form-control">
-
-		</select>
+		<div class="form-group">
+			{!!Form::label('cliente', 'Cliente', ['class' => '']);!!}
+			<select name="generales[cliente]" id="generales_cliente" class="form-control"></select>
+		</div>
 	</div>
 	<div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
-		{!!Form::label('', '&nbsp;', ['class' => '']);!!}
-		<button class="btn btn-dark" style="margin-top:1.5em;" onclick="agregarCliente(event);">¿Deseas Agregar a un cliente mas?</button>
+		<div class="form-group">
+			{!!Form::label('', '&nbsp;', ['class' => '']);!!}
+			<button class="btn btn-dark" style="margin-top:1.5em;" onclick="agregarCliente(event);">¿Deseas Agregar a un cliente mas?</button>
+		</div>
 	</div>
 </div>
 <div class="row" style="margin-top:1.5em;">
 	<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
 		<div class="form-group">
 			<label for="">Vehiculo de interes:</label>
-			{!!Form::text('vehiculo_interes','',['class'=>'form-control','id'=>'vehiculo_interes'])!!}
+			{!!Form::text('generales[vehiculo_interes]','',['class'=>'form-control','id'=>'generales_vehiculo_interes'])!!}
 		</div>
 	</div>
 	<div class="col-md-2 col-sm-2 col-lg-2 col-xs-12">
 		<div class="form-group">
 			<label for="">Precio Ofrecio:</label>
-			{!!Form::number('precio_ofrecido','',['class'=>'form-control','id'=>'precio_ofrecido','step'=>'any'])!!}
+			{!!Form::number('generales[precio_ofrecido]','',['class'=>'form-control','id'=>'generales_precio_ofrecido','step'=>'any'])!!}
 		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
-			<div class="form-group">
+		<div class="form-group">
 			<label for="">¿Por que Medio se entero de nosotros?</label>	
-			{!!Form::select('medio_por_enterado',array('0'=>'Mercado Libre','1'=>'Facebook','2'=>'Seminuevos.com','3'=>'Piso', '4'=>'Cambaceo','5' =>'Recomendado','6'=>'Pagina WEB','7'=>'Otro'),null,['class'=>'form-control'])!!}
-			</div>
+			{!!Form::select('generales[medio_por_enterado]',array('0'=>'Mercado Libre','1'=>'Facebook','2'=>'Seminuevos.com','3'=>'Piso', '4'=>'Cambaceo','5' =>'Recomendado','6'=>'Pagina WEB','7'=>'Otro'),null,['class'=>'form-control','id'=>'generales_medio_por_enterado'])!!}
+		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Toma de Desición</label>	
-			{!!Form::select('tomador_desicion',array('0'=>'Tomador de Desición ','1'=>'Sub-tomador de Desición ','2'=>'Desición Compartida'),null,['class'=>'form-control'])!!}
+			{!!Form::select('generales[tomador_desicion]',array('0'=>'Tomador de Desición ','1'=>'Sub-tomador de Desición ','2'=>'Desición Compartida'),null,['class'=>'form-control','id'=>'generales_tomador_desicion'])!!}
 			</div>
 	</div>
 </div>
@@ -46,9 +48,10 @@
 	<div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
 		<label>Credito:</label>
 		<div class="label_check" > 
-			<input type="radio" class="check credito_pivot" name="credito_pivot" id="si_credito" value="true"  ></div> &nbsp;  <label>Contado:</label>
+			<input type="radio" class="check credito_pivot" name="credito[credito_pivot]" id="si_credito" value="true"  ></div> &nbsp;  <label>Contado:</label>
 		<div class="label_check" >
-			<input type="radio" class="check credito_pivot" name="credito_pivot" id="no_credito" value="false" checked="" > 
+			<input type="radio" class="check credito_pivot" name="credito[credito_pivot]" id="no_credito" value="false" checked="" > 
+			
 		</div>
 	</div>
 	<div class="col-md-6 col-sm-6 col-lg-12 col-xs-12">
@@ -62,33 +65,33 @@
 		<div class="col-md-1 col-xs-3 col-sm-1 col-lg-1">
 			<div class="form-group">
 				<label for="">Plazo:</label>
-				{!!Form::select('plazo',array('12'=>'12','24'=>'24','36'=>'36','48'=>'48','60'=>'60'),null,['class'=>'form-control'])!!}
+				{!!Form::select('credito[plazo]',array('12'=>'12','24'=>'24','36'=>'36','48'=>'48','60'=>'60'),null,['class'=>'form-control','id'=>'credito_plazo'])!!}
 			</div>
 		</div>
 		<div class="col-md-3 col-xs-9 col-sm-3 col-lg-3">
 			<div class="form-group">
 				<label for="">Credito:</label>
-				{!!Form::select('credito',array('0'=>'Credito Casa','1'=>'Credito Fondeadora'),null,['class'=>'form-control','id'=>'tipo_credito'])!!}
+				{!!Form::select('credito[credito]',array('0'=>'Credito Casa','1'=>'Credito Fondeadora'),null,['class'=>'form-control','id'=>'credito_tipo_credito'])!!}
 			</div>
 		</div>
 
 		<div class="col-md-3 col-xs-12 col-sm-3 col-lg-3" id="input_fondeadora" style="display:none;">
 			<div class="form-group">
 				<label for="">Fondeadora:</label>
-				{!!Form::text('fondeadora','',['class'=>'form-control','id'=>'fondeadora'])!!}
+				{!!Form::text('credito[fondeadora]','',['class'=>'form-control','id'=>'credito_fondeadora'])!!}
 			</div>
 		</div>
 		<div class="col-md-1 col-sm-1 col-lg-1 col-xs-12">
 			<div class="form-group">
 				<label for="">Edad:</label>
-				{!!Form::number('edad_cliente','18',['class'=>'form-control','id'=>'edad_cliente'])!!}
+				{!!Form::number('credito[edad_cliente]','18',['class'=>'form-control','id'=>'credito_edad_cliente'])!!}
 			</div>
 		</div>
 		<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
-
+			<div class="form-group">
 				<label for="">Estado Buro de Credito:</label>
-			{!!Form::select('estado_buro',array('Mal Buro','Buen Buro','No tiene Historial de Credito','Buro Regular'),null,['class'=>'form-control'])!!}
-			
+				{!!Form::select('credito[estado_buro]',array('Mal Buro','Buen Buro','No tiene Historial de Credito','Buro Regular'),null,['class'=>'form-control'])!!}
+			</div>
 		</div>
 	 
 
@@ -96,29 +99,33 @@
 	<div class="row">
 
 		<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
-			<label for="">Observaciones Buro de Credito:</label>
-			{!!Form::textarea('observaciones_buro',null,['class'=>'form-control','size'=>'2x3'])!!}
+			<div class="form-group">
+				<label for="">Observaciones Buro de Credito:</label>
+				{!!Form::textarea('credito[observaciones_buro]',null,['class'=>'form-control','size'=>'2x3','id'=>'credito_observaciones_buro'])!!}
+			</div>
 		</div>
 			<div class="col-md-2 col-sm-2 col-lg-2 col-xs-12">
 			<div class="form-group">
 				<label for="">Ingreso Mensual:</label>
-				{!!Form::number('ingreso_mensual','0',['class'=>'form-control','id'=>'ingreso_mensual','step'=>'any'])!!}
+				{!!Form::number('credito[ingreso_mensual]',null,['class'=>'form-control','id'=>'credito_ingreso_mensual','step'=>'any'])!!}
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
-			<label for="">Comprobante de Ingresos:</label>
-			{!!Form::select('comprobante_ingresos',['Elige Comprobante','Recibos de Nomina','Estados de Cuenta','Declaraciones'],null,['class'=>'form-control','id'=>'comprobante_ingresos'])!!}
+			<div class="form-group">
+				<label for="">Comprobante de Ingresos:</label>
+				{!!Form::select('credito[comprobante_ingresos]',['Declaraciones','Recibos de Nomina','Estados de Cuenta'],null,['class'=>'form-control','id'=>'credito_comprobante_ingresos'])!!}
+			</div>
 		</div>
 		<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12" id="numero_seguro_social" style="display:none;">
 			<div class="form-group">
 				<label for="">Numero Seguro Social:</label>
-				{!!Form::number('seguro_social','00000000000',['class'=>'form-control','id'=>'seguro_social'])!!}
+				{!!Form::number('credito[seguro_social]','00000000000',['class'=>'form-control','id'=>'credito_seguro_social'])!!}
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12" id="depositos_mensuales" style="display:none;">
 			<div class="form-group">
 				<label for="">Depositos Edo. de Cuenta:</label>
-				{!!Form::number('depositos_estados_cuenta','',['class'=>'form-control','id'=>'depositos_estados_cuenta'])!!}
+				{!!Form::number('credito[depositos_estados_cuenta]','',['class'=>'form-control','id'=>'credito_depositos_estados_cuenta'])!!}
 			</div>
 		</div>
 </div>
@@ -145,31 +152,31 @@
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Tipo de vehiculo a cuenta:</label>
-			{!!Form::text('vehiculo_cuenta','',['class'=>'form-control'])!!}
+			{!!Form::text('vehiculo_cuenta[vehiculo_cuenta]','',['class'=>'form-control','id'=>'vehiculo_cuenta_vehiculo_cuenta'])!!}
 		</div>
 	</div>
 	<div class="col-md-2 col-sm-2 col-lg-2 col-xs-12">
 		<div class="form-group">
 			<label for="">Versión:</label>
-			{!!Form::text('version_vehiculo','',['class'=>'form-control'])!!}
+			{!!Form::text('vehiculo_cuenta[version_vehiculo]','',['class'=>'form-control','id'=>'vehiculo_cuenta_version_vehiculo'])!!}
 		</div>
 	</div>
 	<div class="col-md-2 col-sm-2 col-lg-2 col-xs-12">
 		<div class="form-group">
 			<label for="">Año:</label>
-			{!!Form::number('anio_vehiculo',null,['class'=>'form-control'])!!}
+			{!!Form::number('vehiculo_cuenta[anio_vehiculo]',null,['class'=>'form-control','id'=>'vehiculo_cuenta_anio_vehiculo'])!!}
 		</div>
 	</div>
 	<div class="col-md-2 col-sm-2 col-lg-2 col-xs-12">
 		<div class="form-group">
 			<label for="">Tenencias:</label>
-			{!!Form::text('tenencia_vehiculo','',['class'=>'form-control'])!!}
+			{!!Form::text('vehiculo_cuenta[tenencia_vehiculo]','',['class'=>'form-control','id'=>'vehiculo_cuenta_tenencia_vehiculo'])!!}
 		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Verificación:</label>
-			{!!Form::text('verificacion_vehiculo','',['class'=>'form-control'])!!}
+			{!!Form::text('vehiculo_cuenta[verificacion_vehiculo]','',['class'=>'form-control','id'=>'vehiculo_cuenta_verificacion_vehiculo'])!!}
 		</div>
 	</div>
 </div>
@@ -177,51 +184,62 @@
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Caracteristicas vehiculo:</label>
-			{!!Form::text('caracteristicas_vehiculo','',['class'=>'form-control'])!!}
+			{!!Form::text('vehiculo_cuenta[caracteristicas_vehiculo]','',['class'=>'form-control','id'=>'vehiculo_cuenta_caracteristicas_vehiculo'])!!}
 		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Kilometraje:</label>
-			{!!Form::number('kilometraje',null,['class'=>'form-control'])!!}
+			{!!Form::number('vehiculo_cuenta[kilometraje]',null,['class'=>'form-control','id'=>'vehiculo_cuenta_kilometraje'])!!}
 		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Dueños:</label>
-			{!!Form::number('vehiculo_duenios',null,['class'=>'form-control'])!!}
+			{!!Form::number('vehiculo_cuenta[vehiculo_duenios]',null,['class'=>'form-control','id'=>'vehiculo_cuenta_vehiculo_duenios'])!!}
 			
 		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Color:</label>
-			{!!Form::text('color_vehiculo','',['class'=>'form-control'])!!}
+			{!!Form::text('vehiculo_cuenta[color_vehiculo]','',['class'=>'form-control','id'=>'vehiculo_cuenta_color_vehiculo'])!!}
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
-			<label for="">Comprobante de Ingresos:</label>
-				{!!Form::select('comprobante_ingresos',['Factura de  Agencia','Arrendadora','Empresa','Lote','Asseguradora'],null,['class'=>'form-control','id'=>'comprobante_ingresos'])!!}
+			<label for="">Papeles:</label>
+				{!!Form::select('vehiculo_cuenta[papeles]',['Factura de  Agencia','Arrendadora','Empresa','Lote','Asseguradora'],null,['class'=>'form-control','id'=>'vehiculo_cuenta_papeles'])!!}
 		</div>	
 	
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Pretende cantidad por el vehiculo:</label>
-			{!!Form::text('vehiculo_precio_cuenta','',['class'=>'form-control'])!!}
+			{!!Form::text('vehiculo_cuenta[vehiculo_precio_cuenta]','',['class'=>'form-control','id'=>'vehiculo_cuenta_vehiculo_precio_cuenta'])!!}
 		</div>
 	</div>
 </div>
+</div>
+<div class="row" style="margin-top:6em;">
+ 
+	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12  center-block text-center">
+	
+	<div class="form-group" >
+			<label for="">Dia para el seguimiento:</label>
+			<input type="text" name="seguimiento" id="seguimiento" class="datepicker form-control" placeholder="aaaa-mm-dd">
+		</div>
+	</div>
+	
+	
 </div>
 <div class="row" style="margin-top:6em;">
 	<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12  center-block text-center">
 		<button class="btn btn-dark" style="width:60%;" onclick="enviarFormulario(event);">Agregar Prospección</button>
 	</div>
 </div>
-
 {!! Form::close() !!}
 
 
@@ -403,6 +421,10 @@ $.ajax({
 
 $(document).ready(function(){
 	getOptionCliente();
+	$('.datepicker').datepicker({
+    	dateFormat: 'yy-mm-dd',
+    	
+	});
 	$('.check_vehiculo_cuenta').change(function(){
 		if($(this).val()=='true'){
 					$('#vehiculo_a_cuenta').show('slow');
@@ -411,7 +433,7 @@ $(document).ready(function(){
 					$('#vehiculo_a_cuenta').hide('slow');
 				}
 	});
-	$('#comprobante_ingresos').change(function(){
+	$('#credito_comprobante_ingresos').change(function(){
 		if($(this).val()=='1'){
 			$('#numero_seguro_social').show('slow');
 			$('#depositos_mensuales').hide('slow');
@@ -423,7 +445,7 @@ $(document).ready(function(){
 			$('#depositos_mensuales').hide('slow');
 		}
 	});
-		$('#tipo_credito').change(function(){
+		$('#credito_tipo_credito').change(function(){
 				if($(this).val()=='1'){
 					$('#input_fondeadora').show('slow');
 				}else{
@@ -435,7 +457,9 @@ $(document).ready(function(){
 
 			$("input[type='radio']").click(toggleCheck_radio);
 			$("input[type='radio']").each(toggleCheck_radio);  
+			//$('#pivote_credito').val($(this).val());
 			if($(this).val()=="true"){
+				
 				$('#perfilCrediticio').show('slow');
 			}else{
 				$('#perfilCrediticio').hide('slow');
@@ -480,7 +504,7 @@ $(document).ready(function(){
                 type:'GET',
                 data:datos,
                 success:function(response){
-                    $('#cliente').html(response);
+                    $('#generales_cliente').html(response);
                     
 
 
@@ -521,8 +545,62 @@ $(document).ready(function(){
             {
                 text: "Si",
                 click: function() {
-                	$('#alta_proscpeccion').submit();
-                }
+
+                	$('.spans').remove();
+                	$('input').each(function(){
+                		$(this).parent('div').removeClass('has-error');
+
+
+
+                	});
+                	$('select').each(function(){
+                		$(this).parent('div').removeClass('has-error');
+
+
+
+                	});
+                	
+
+					//console.log($('#crear').serializeArray());
+					//   $('#alta_prospeccion').submit();
+					$.ajax({
+						data:$('#alta_prospeccion').serialize(),
+						url:$('#alta_prospeccion').attr('action'),
+						type:'POST',
+						success:function(response){
+console.log(response);
+							if(response.error_permisos=='1'){
+								window.location="{{url('ErrorEnLosPermisos')}}";
+							}
+					// console.log(response);
+					if(response.success=='0'){
+						//window.location=response.url;
+					}else{ 
+						for(var i=0; i<response.errors.length; i++){
+							if(response.errors[i]!=null){
+
+								objeto_errores=response.errors[i];
+
+								for(propiedad in objeto_errores){ 
+								
+		//console.log(propiedad.replace('.','_'));
+									$('#'+propiedad.replace('.','_')).parent('div').addClass('has-error');
+									$('#'+propiedad.replace('.','_')).parent('div').append('  <span  class="spans help-block"><strong>'+  objeto_errores[propiedad][0]+'</strong></span>');
+
+								}
+
+							}
+						}
+
+					}
+
+
+					}
+					});
+				$( this ).dialog( "close" );
+
+
+}
             },{
                 text:"No",
                 click:function(){
