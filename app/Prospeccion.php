@@ -9,9 +9,7 @@ class Prospeccion extends Model
     
     protected $table="Prospeccion";
 
-        protected $fillable = [
-        'id_cliente','id_vendedor','id','token_json','fecha_seguimiento'
-    ];
+        protected $fillable = ['id_cliente','id_vendedor','id','token_json'];
 
   
  
@@ -25,6 +23,9 @@ class Prospeccion extends Model
 
     public function cliente(){
     	return $this->belongsTo('FinanciaSystem\Cliente','id_cliente','id');
+    }
+    public function prospeccionFecha(){
+        return $this->hasMany('FinanciaSystem\prospeccionFecha','id_prospeccion','id');
     }
 
 }

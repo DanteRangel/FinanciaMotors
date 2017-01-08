@@ -48,7 +48,13 @@ Route::any('Servicios_for_Vehiculo/{id}/setServicios','Servicios_VehiculoControl
 });
 
 Route::group(['prefix'=>'Prospeccion','middleware'=>'admin'],function(){
-	Route::get('primera_etapa','ProspeccionController@primera_etapa');
+	Route::get('create','ProspeccionController@create');
 	Route::get('getOptionCliente','ProspeccionController@getOptionCliente');
 	Route::post('primera_etapa','ProspeccionController@primera_etapa_guardar');
+	Route::get('get/{id}','ProspeccionController@getProspeccion');
+	Route::get('dashboard','ProspeccionController@dashboard');
+});
+
+Route::group(['prefix'=>'mail'],function(){
+	Route::get('send/seguimientos/day','MailController@send');
 });

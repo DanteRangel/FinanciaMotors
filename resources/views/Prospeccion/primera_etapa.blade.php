@@ -575,6 +575,8 @@ console.log(response);
 					// console.log(response);
 					if(response.success=='0'){
 						//window.location=response.url;
+						noitificacion(response.message,'dark');
+						$('#alta_prospeccion')[0].reset();
 					}else{ 
 						for(var i=0; i<response.errors.length; i++){
 							if(response.errors[i]!=null){

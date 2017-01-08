@@ -1,9 +1,10 @@
-<!DOCTYPE html> <html lang="en">
+<html lang="es">
 
 <head>
+    <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +29,7 @@
     <link href="{{asset('css/floatexamples.css')}}" rel="stylesheet" type="text/css" />
 
     <link href="{{asset('css/tres.css')}}" rel="stylesheet" type="text/css" />
-
+@yield('css')
 
     <!--[if lt IE 9]>
     <script src="../assets/js/ie8-responsive-file-warning.js"></script>

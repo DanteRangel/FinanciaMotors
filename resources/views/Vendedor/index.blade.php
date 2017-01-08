@@ -45,7 +45,7 @@
 
                                 <td valign="center">{{$vendedor->persona->apellidoPaterno.' '.$vendedor->persona->apellidoMaterno}}</td>
                                 <td valign="center">{{$vendedor->permisos->nombre}}</td>
-                                <td valign="center">@if($vendedor->status==1)  <img align="center" width="15px" class="center-block" src="{{asset('images/check.png')}}"><p lass="text-center" align="center">Activo</p>  @elseif($vendedor->status==0) <img width="15px" align="center" class="center-block" src="{{asset('images/not-check.png')}}"><p class="text-center" align="center"> Inactivo</p>@endif</td>
+                                <td valign="center">@if($vendedor->status==1)  <img align="center" width="15px" class="center-block" src="{{asset('images/check.png')}}"><p lass="text-center" align="center">Activo</p>  @elseif($vendedor->status!=1) <img width="15px" align="center" class="center-block" src="{{asset('images/not-check.png')}}"><p class="text-center" align="center"> Inactivo</p>@endif</td>
                                
                                 <td valign="center" align="center"><button class="btn btn-success" onclick="window.location.href='{{url('admin/Vendedor/'.$vendedor->id.'/edit')}}';" >Modificar</button></td>
 

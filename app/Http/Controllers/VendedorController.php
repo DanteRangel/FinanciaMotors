@@ -9,6 +9,7 @@ use FinanciaSystem\Persona;
 use FinanciaSystem\Permiso;
 use FinanciaSystem\Http\Requests;
 use Storage;
+use Mail;
 class VendedorController extends Controller
 {
     /**
@@ -83,9 +84,21 @@ class VendedorController extends Controller
  
         $user->clave_vendedor='V-'.$user->id;
 
+
   $request->session()->flash('crear','Se ha creado un nuevo usuario con su clave '.$user->clave_vendedor);
         $user->save();
 
+        Mail::send('layouts.mail_user_create',['user'=>$user,'password'=>$request->password] , function($message) use ($request){
+			//remitente
+        	$message->from(env('MAIL_USERNAME'), 'Has sido dado de alta en FinanciaMotorsSystem '.$request->nombre.' '.$request->apellidoPaterno.' '.$request->apellidoMaterno);
+
+//asunto
+        	$message->subject('Tu usuario esta dado de alta.');
+
+//receptor
+        	$message->to($request->correo, $request->nombre.' '.$request->apellidoPaterno.' '.$request->apellidoMaterno);
+
+        });
 
 
 

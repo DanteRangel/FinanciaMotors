@@ -4,6 +4,7 @@ namespace FinanciaSystem\Http\Controllers;
 
 use Illuminate\Http\Request;
 use FinanciaSystem\Cliente;
+use FinanciaSystem\prospeccionFecha;
 use FinanciaSystem\Persona;
 use FinanciaSystem\Prospeccion;
 use FinanciaSystem\Http\Requests;
@@ -14,7 +15,7 @@ use Auth;
 
 class ProspeccionController extends Controller
 {
-	public function primera_etapa(){
+	public function create(){
 		$clientes=Cliente::all();
 		return view('Prospeccion.primera_etapa',['clientes'=>$clientes]);
 	}
@@ -128,12 +129,16 @@ class ProspeccionController extends Controller
 			$json['generales']=$request->generales;
 			$cliente=$request->generales['cliente'];
 			$id_prospeccion=md5(Auth::user()->id.'_'.$cliente.'_'.date("Ymd")).'.json';
-			Prospeccion::create([
+			$new_prospeccion=Prospeccion::create([
 				'id_cliente'=>$cliente,
 				'id_vendedor'=>Auth::user()->id,
-				'token_json'=>$id_prospeccion,
-				'fecha_seguimiento'=>$request->seguimiento
+				'token_json'=>$id_prospeccion
 				]);
+			prospeccionFecha::create([
+				'id_prospeccion'=>$new_prospeccion->id,
+				'fecha'=>$request->seguimiento
+				]);
+
 			Storage::disk('public')->makeDirectory('/assets/prospeccion');
       		  $url =  '/assets/prospeccion/'.$id_prospeccion;
           	Storage::disk('public')->put($url , json_encode($json,true));
@@ -150,5 +155,16 @@ class ProspeccionController extends Controller
 			$html.='<option value="'.$cliente->id.'">'.$cliente->persona->nombre.' '.$cliente->persona->apellidoPaterno.' '.$cliente->persona->apellidoMaterno	.'</option>';
 		}
 		return $html;
+	}
+	public function getProspeccion($id){
+		$prospeccion=Prospeccion::find($id);
+
+		$json=Storage::disk('public')->get('/assets/prospeccion/'.$prospeccion->token_json);
+		return json_decode($json,true);
+	}
+	public function dashboard(){
+		$prospecciones=Prospeccion::all();
+		$calendario=prospeccionFecha::all();
+		return view('Prospeccion.dashboard',['prospecciones'=>$prospecciones,'calendario'=>$calendario]);
 	}
 }
