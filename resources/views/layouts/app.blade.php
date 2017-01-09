@@ -173,7 +173,14 @@
                                <li ><a href="#">Contabilidad</a></li>
                                <li ><a href="{{url('Ventas')}}">Ventas</a></li>
 
-                               <li ><a href="{{url('Prospeccion/primera_etapa')}}">Prospeccion</a></li>
+                            
+                            
+                          </ul>
+                        </li>
+                        <li><a><i class="fa fa-shopping-cart"></i> Prospección <span class="fa fa-chevron-down"></span></a> 
+                          <ul class="nav child_menu" style="display: none;">
+                               <li ><a href="{{url('Prospeccion/dashboard')}}">Dashboard</a></li>
+                               <li ><a href="{{url('Prospeccion/create')}}">Da de alta un nuevo prospecto</a></li>
                             
                           </ul>
                         </li>

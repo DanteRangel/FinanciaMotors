@@ -53,6 +53,7 @@ Route::group(['prefix'=>'Prospeccion','middleware'=>'admin'],function(){
 	Route::post('primera_etapa','ProspeccionController@primera_etapa_guardar');
 	Route::get('get/{id}','ProspeccionController@getProspeccion');
 	Route::get('dashboard','ProspeccionController@dashboard');
+	Route::post('update','ProspeccionController@update');
 });
 
 Route::group(['prefix'=>'mail'],function(){
