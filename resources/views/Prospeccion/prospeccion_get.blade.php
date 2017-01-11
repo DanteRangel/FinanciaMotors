@@ -3,7 +3,8 @@
 @section('content') 
 
 {!! Form::open(['url' => 'Prospeccion/update','id'=>'alta_prospeccion']) !!}
-<input type="hidden" value="{{$database_prospeccion->id}}">
+<input type="hidden" name="archivo_prospeccion" value="{{$database_prospeccion->token_json}}">
+<input type="hidden" name="id_prospeccion" value="{{$database_prospeccion->id}}">
 <div class="row">
 	<div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
 		<div class="form-group">
@@ -238,7 +239,13 @@
 	
 @endforeach
 
-<div id="_fechas"></div>
+
+	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12  center-block text-center" id="_fechas" style="display:none;">
+		<div class="form-group" >
+			<label for="">Dia para el seguimiento:</label>
+			<input type="text" name="seguimiento" id="seguimiento" class="datepicker form-control" placeholder="aaaa-mm-dd">
+		</div>
+	</div>
 	<div class="col-md-1 col-sm-1 col-lg-1 col-xs-12  center-block text-center">
 	
 	<div class="form-group" >
@@ -348,6 +355,7 @@
 							<div class="row" style="margin-top:1.5em;">
 								<div class="col-md-12 col-xs-12 col-lg-12 col-sm-12 text.center">
 									<div class="row-fluid" id="div_empresa">
+
 									</div>
 								</div>
 							</div>
@@ -371,8 +379,8 @@
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
-<div id="dialog_crear" title="Alta Prospección " style="display:none">
-    <p>¿Estas seguro que deseas dar de alta la Prospección? </p>
+<div id="dialog_crear" title="Modificar Prospección " style="display:none">
+    <p>¿Estas seguro que deseas Ḿodificar la Prospección? </p>
 </div>
 			@endsection
 
@@ -383,7 +391,7 @@
 function nuevafecha(e){
      e.preventDefault();
 
-     $('#_fechas').html('<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12  center-block text-center"><div class="form-group" ><label for="">Dia para el seguimiento:</label><input type="text" name="seguimiento" id="seguimiento" class="datepicker form-control" placeholder="aaaa-mm-dd"></div></div>')
+     $('#_fechas').show();
 }
    function agregarCliente(e){
         e.preventDefault();
@@ -525,7 +533,8 @@ $(document).ready(function(){
                     $('#generales_cliente').html(response);
                     
 
-
+                    
+                    $("#generales_cliente option[value="+ '{{$database_prospeccion->id_cliente}}' +"]").attr("selected",true);
                 }
 
             });

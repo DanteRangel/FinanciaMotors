@@ -255,7 +255,7 @@ class ProspeccionController extends Controller
 			}
 		}
 		$validator=Validator::make($request->all(),[
-			'seguimiento'=>'required|date',
+			'seguimiento'=>'date',
 
 		]);
 
@@ -279,22 +279,18 @@ class ProspeccionController extends Controller
 			$json['seguimiento']=$request->seguimiento;
 			$json['generales']=$request->generales;
 			$cliente=$request->generales['cliente'];
-			$id_prospeccion=md5(Auth::user()->id.'_'.$cliente.'_'.date("Ymd")).'.json';
-			$new_prospeccion=Prospeccion::create([
-				'id_cliente'=>$cliente,
-				'id_vendedor'=>Auth::user()->id,
-				'token_json'=>$id_prospeccion
-				]);
+			$id_prospeccion=$request->archivo_prospeccion;
+			 
 			prospeccionFecha::create([
-				'id_prospeccion'=>$new_prospeccion->id,
+				'id_prospeccion'=>$request->id_prospeccion,
 				'fecha'=>$request->seguimiento
 				]);
-
+			
 			Storage::disk('public')->makeDirectory('/assets/prospeccion');
       		  $url =  '/assets/prospeccion/'.$id_prospeccion;
           	Storage::disk('public')->put($url , json_encode($json,true));
-          	  $request->session()->flash('crear','Se ha creado el seguimiento del prospecto');
-			return ['success'=>'0','message'=>'Se ha creado el seguimiento del prospecto'];
+          	  $request->session()->flash('crear','Se ha actualizado el seguimiento del prospecto');
+			return ['success'=>'0','message'=>'Se ha actualizado el seguimiento del prospecto'];
 		}
 
 
