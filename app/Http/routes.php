@@ -57,5 +57,5 @@ Route::group(['prefix'=>'Prospeccion','middleware'=>'admin'],function(){
 });
 
 Route::group(['prefix'=>'mail'],function(){
-	Route::get('send/seguimientos/day','MailController@send');
+	Route::any('send/seguimientos/day','MailController@send');
 });
