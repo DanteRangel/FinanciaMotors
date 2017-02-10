@@ -23,11 +23,11 @@
     <link href="{{asset('css/animate.min.css')}}" rel="stylesheet">
 
     <!-- Custom styling plus plugins -->
-    <link href="{{asset('css/custom.css')}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('css/maps/jquery-jvectormap-2.0.3.css')}}" />
     <link href="{{asset('css/icheck/flat/green.css')}}" rel="stylesheet" />
     <link href="{{asset('css/floatexamples.css')}}" rel="stylesheet" type="text/css" />
 
+    <link href="{{asset('css/custom.css')}}" rel="stylesheet">
     <link href="{{asset('css/tres.css')}}" rel="stylesheet" type="text/css" />
 @yield('css')
 
@@ -214,18 +214,9 @@
                         <div class="nav toggle">
                             <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                         </div>
-                            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
+                           
               
-                <ul class="nav navbar-nav">
-                               </ul>
-
-         
-                  <ul class="nav navbar-nav">
-
-     
-  
-          </ul>
+          
        
      <!-- Right Side Of Navbar -->
 
@@ -235,6 +226,7 @@
 
                    
               <li class="">
+
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                  <img src="{{asset('assets/profile/'.Auth::user()->id.'/'.Auth::user()->img_src)}}" > {{Auth::user()->persona->nombre}}
                   <span class=" fa fa-angle-down"></span>
@@ -334,8 +326,7 @@
               </li>-->
 
             </ul>
-              
-            </div>
+               
                     </nav>
                 </div>
 
@@ -380,7 +371,6 @@
 <script src="{{asset('js/jquery.js')}}"></script> 
   <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
-  <script src="{{asset('js/custom.js')}}"></script>
   <!-- bootstrap progress js -->
   <script src="{{asset('/js/progressbar/bootstrap-progressbar.min.js')}}"></script>
   <script src="{{asset('/js/nicescroll/jquery.nicescroll.min.js')}}"></script>
@@ -398,6 +388,7 @@
   <!-- skycons -->
   <script src="{{asset('js/skycons/skycons.min.js')}}"></script>
 
+  <script src="{{asset('js/custom.js')}}"></script>
   <!-- flot js -->
   <!--[if lte IE 8]><script type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
   <script type="text/javascript" src="{{asset('js/flot/jquery.flot.js')}}"></script>
