@@ -13,7 +13,7 @@ class prospeccionFecha extends Model
      */
     protected $table="prospeccionFecha";
 
-    protected $fillable = ['id','fecha','id_prospeccion'];
+    protected $fillable = ['id','fecha','id_prospeccion','accion'];
 
     /**
      * The attributes that should be hidden for arrays.

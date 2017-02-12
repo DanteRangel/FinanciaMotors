@@ -73,7 +73,7 @@ class ProspeccionController extends Controller
 				$numero=(int)$request->credito['comprobante_ingresos'];
 				$comprobante_ingresos=['','seguro_social','depositos_estados_cuenta'];
 				$validator=Validator::make($request->all(),[
-					'credito.'.$comprobante_ingresos[$numero]=>'required|numeric',
+					'credito.'.$comprobante_ingresos[$numero]=>'numeric',
 				]);
 				if($validator->fails()){
 					$validator_errors[3]=$validator->errors();
@@ -95,6 +95,8 @@ class ProspeccionController extends Controller
 				'vehiculo_cuenta.color_vehiculo'=>'required|string',
 				'vehiculo_cuenta.papeles'=>'required|string',
 				'vehiculo_cuenta.vehiculo_precio_cuenta'=>'required|numeric',
+				'vehiculo_cuenta.guia_autometrica_toma'=>'numeric',
+				'vehiculo_cuenta.guia_autometrica_venta'=>'numeric'
 				
 				
 			]);
@@ -105,6 +107,7 @@ class ProspeccionController extends Controller
 		}
 		$validator=Validator::make($request->all(),[
 			'seguimiento'=>'required|date',
+			'accion'=>'required'
 
 		]);
 
@@ -136,7 +139,8 @@ class ProspeccionController extends Controller
 				]);
 			prospeccionFecha::create([
 				'id_prospeccion'=>$new_prospeccion->id,
-				'fecha'=>$request->seguimiento
+				'fecha'=>$request->seguimiento,
+				'accion'=>$request->accion
 				]);
 
 			Storage::disk('public')->makeDirectory('/assets/prospeccion');
@@ -256,6 +260,7 @@ class ProspeccionController extends Controller
 		}
 		$validator=Validator::make($request->all(),[
 			'seguimiento'=>'date',
+			'accion'=>'required'
 
 		]);
 
@@ -283,7 +288,8 @@ class ProspeccionController extends Controller
 			 
 			prospeccionFecha::create([
 				'id_prospeccion'=>$request->id_prospeccion,
-				'fecha'=>$request->seguimiento
+				'fecha'=>$request->seguimiento,
+				'accion'=>$request->accion
 				]);
 			
 			Storage::disk('public')->makeDirectory('/assets/prospeccion');

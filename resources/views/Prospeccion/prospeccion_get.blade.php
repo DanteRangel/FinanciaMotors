@@ -23,13 +23,13 @@
 	<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
 		<div class="form-group">
 			<label for="">Vehiculo de interes:</label>
-			{!!Form::text('generales[vehiculo_interes]',$prospeccion["generales"]["vehiculo_interes"],['class'=>'form-control','id'=>'generales_vehiculo_interes'])!!}
+			{!!Form::text('generales[vehiculo_interes]',$prospeccion["generales"]["vehiculo_interes"],['class'=>'form-control','id'=>'generales_vehiculo_interes','placeholder'=>'Ejemplo: Jetta'])!!}
 		</div>
 	</div>
 	<div class="col-md-2 col-sm-2 col-lg-2 col-xs-12">
 		<div class="form-group">
 			<label for="">Precio Ofrecio:</label>
-			{!!Form::number('generales[precio_ofrecido]',$prospeccion["generales"]["precio_ofrecido"],['class'=>'form-control','id'=>'generales_precio_ofrecido','step'=>'any'])!!}
+			{!!Form::number('generales[precio_ofrecido]',$prospeccion["generales"]["precio_ofrecido"],['class'=>'form-control','id'=>'generales_precio_ofrecido','step'=>'any','placeholder'=>'Ejemplo: 120000'])!!}
 		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
@@ -80,7 +80,7 @@
 		<div class="col-md-3 col-xs-12 col-sm-3 col-lg-3" id="input_fondeadora" style="{{($prospeccion["credito"]["credito"]=="1")? '':'display:none;' }}">
 			<div class="form-group">
 				<label for="">Fondeadora:</label>
-				{!!Form::text('credito[fondeadora]',$prospeccion["credito"]["fondeadora"],['class'=>'form-control','id'=>'credito_fondeadora'])!!}
+				{!!Form::text('credito[fondeadora]',$prospeccion["credito"]["fondeadora"],['class'=>'form-control','id'=>'credito_fondeadora','placeholder'=>''])!!}
 			</div>
 		</div>
 		<div class="col-md-1 col-sm-1 col-lg-1 col-xs-12">
@@ -103,13 +103,13 @@
 		<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
 			<div class="form-group">
 				<label for="">Observaciones Buro de Credito:</label>
-				{!!Form::textarea('credito[observaciones_buro]',$prospeccion["credito"]["observaciones_buro"],['class'=>'form-control','size'=>'2x3','id'=>'credito_observaciones_buro'])!!}
+				{!!Form::textarea('credito[observaciones_buro]',$prospeccion["credito"]["observaciones_buro"],['class'=>'form-control','size'=>'2x3','id'=>'credito_observaciones_buro','placeholder'=>'Ejemplo: Un retraso en pagos de servicios'])!!}
 			</div>
 		</div>
 			<div class="col-md-2 col-sm-2 col-lg-2 col-xs-12">
 			<div class="form-group">
 				<label for="">Ingreso Mensual:</label>
-				{!!Form::number('credito[ingreso_mensual]',$prospeccion["credito"]["ingreso_mensual"],['class'=>'form-control','id'=>'credito_ingreso_mensual','step'=>'any'])!!}
+				{!!Form::number('credito[ingreso_mensual]',$prospeccion["credito"]["ingreso_mensual"],['class'=>'form-control','id'=>'credito_ingreso_mensual','step'=>'any','placeholder'=>'Ejemplo: 15000'])!!}
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
@@ -154,31 +154,31 @@
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Tipo de vehiculo a cuenta:</label>
-			{!!Form::text('vehiculo_cuenta[vehiculo_cuenta]',$prospeccion["vehiculo_cuenta"]["vehiculo_cuenta"],['class'=>'form-control','id'=>'vehiculo_cuenta_vehiculo_cuenta'])!!}
+			{!!Form::text('vehiculo_cuenta[vehiculo_cuenta]',$prospeccion["vehiculo_cuenta"]["vehiculo_cuenta"],['class'=>'form-control','id'=>'vehiculo_cuenta_vehiculo_cuenta','placeholder'=>'Ejemplo: Focus'])!!}
 		</div>
 	</div>
 	<div class="col-md-2 col-sm-2 col-lg-2 col-xs-12">
 		<div class="form-group">
 			<label for="">Versión:</label>
-			{!!Form::text('vehiculo_cuenta[version_vehiculo]',$prospeccion["vehiculo_cuenta"]["version_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_version_vehiculo'])!!}
+			{!!Form::text('vehiculo_cuenta[version_vehiculo]',$prospeccion["vehiculo_cuenta"]["version_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_version_vehiculo','placeholder'=>'Ejemplo: rs'])!!}
 		</div>
 	</div>
 	<div class="col-md-2 col-sm-2 col-lg-2 col-xs-12">
 		<div class="form-group">
 			<label for="">Año:</label>
-			{!!Form::number('vehiculo_cuenta[anio_vehiculo]',$prospeccion["vehiculo_cuenta"]["anio_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_anio_vehiculo'])!!}
+			{!!Form::number('vehiculo_cuenta[anio_vehiculo]',$prospeccion["vehiculo_cuenta"]["anio_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_anio_vehiculo','placeholder'=>'Ejemplo: 2005'])!!}
 		</div>
 	</div>
 	<div class="col-md-2 col-sm-2 col-lg-2 col-xs-12">
 		<div class="form-group">
 			<label for="">Tenencias:</label>
-			{!!Form::text('vehiculo_cuenta[tenencia_vehiculo]',$prospeccion["vehiculo_cuenta"]["tenencia_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_tenencia_vehiculo'])!!}
+			{!!Form::text('vehiculo_cuenta[tenencia_vehiculo]',$prospeccion["vehiculo_cuenta"]["tenencia_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_tenencia_vehiculo','placeholder'=>'Ejemplo: Todas'])!!}
 		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Verificación:</label>
-			{!!Form::text('vehiculo_cuenta[verificacion_vehiculo]',$prospeccion["vehiculo_cuenta"]["verificacion_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_verificacion_vehiculo'])!!}
+			{!!Form::text('vehiculo_cuenta[verificacion_vehiculo]',$prospeccion["vehiculo_cuenta"]["verificacion_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_verificacion_vehiculo','placeholder'=>'Ejemplo: Todas'])!!}
 		</div>
 	</div>
 </div>
@@ -186,26 +186,26 @@
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Caracteristicas vehiculo:</label>
-			{!!Form::text('vehiculo_cuenta[caracteristicas_vehiculo]',$prospeccion["vehiculo_cuenta"]["caracteristicas_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_caracteristicas_vehiculo'])!!}
+			{!!Form::text('vehiculo_cuenta[caracteristicas_vehiculo]',$prospeccion["vehiculo_cuenta"]["caracteristicas_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_caracteristicas_vehiculo','placeholder'=>'Ejemplo: Vehiculo en 90% estetica y 90% maquina, generalmente en buen estado'])!!}
 		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Kilometraje:</label>
-			{!!Form::number('vehiculo_cuenta[kilometraje]',$prospeccion["vehiculo_cuenta"]["kilometraje"],['class'=>'form-control','id'=>'vehiculo_cuenta_kilometraje'])!!}
+			{!!Form::number('vehiculo_cuenta[kilometraje]',$prospeccion["vehiculo_cuenta"]["kilometraje"],['class'=>'form-control','id'=>'vehiculo_cuenta_kilometraje','placeholder'=>'Ejemplo: 123000'])!!}
 		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Dueños:</label>
-			{!!Form::number('vehiculo_cuenta[vehiculo_duenios]',$prospeccion["vehiculo_cuenta"]["vehiculo_duenios"],['class'=>'form-control','id'=>'vehiculo_cuenta_vehiculo_duenios'])!!}
+			{!!Form::number('vehiculo_cuenta[vehiculo_duenios]',$prospeccion["vehiculo_cuenta"]["vehiculo_duenios"],['class'=>'form-control','id'=>'vehiculo_cuenta_vehiculo_duenios','placeholder'=>'Ejemplo: 2'])!!}
 			
 		</div>
 	</div>
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Color:</label>
-			{!!Form::text('vehiculo_cuenta[color_vehiculo]',$prospeccion["vehiculo_cuenta"]["color_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_color_vehiculo'])!!}
+			{!!Form::text('vehiculo_cuenta[color_vehiculo]',$prospeccion["vehiculo_cuenta"]["color_vehiculo"],['class'=>'form-control','id'=>'vehiculo_cuenta_color_vehiculo','placeholder'=>'Ejemplo: Negro'])!!}
 		</div>
 	</div>
 </div>
@@ -220,7 +220,20 @@
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
 		<div class="form-group">
 			<label for="">Pretende cantidad por el vehiculo:</label>
-			{!!Form::text('vehiculo_cuenta[vehiculo_precio_cuenta]',$prospeccion["vehiculo_cuenta"]["vehiculo_precio_cuenta"],['class'=>'form-control','id'=>'vehiculo_cuenta_vehiculo_precio_cuenta'])!!}
+			{!!Form::text('vehiculo_cuenta[vehiculo_precio_cuenta]',$prospeccion["vehiculo_cuenta"]["vehiculo_precio_cuenta"],['class'=>'form-control','id'=>'vehiculo_cuenta_vehiculo_precio_cuenta','placeholder'=>'Ejemplo:80000'])!!}
+		</div>
+	</div>
+ 
+			<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
+		<div class="form-group">
+			<label for="">Guia Autometrica Toma :</label>
+			{!!Form::text('vehiculo_cuenta[guia_autometrica_toma]',$prospeccion["vehiculo_cuenta"]["guia_autometrica_toma"],['class'=>'form-control','id'=>'vehiculo_cuenta_guia_autometrica_toma','placeholder'=>'Ejemplo:75000'])!!}
+		</div>
+	</div>
+		<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
+		<div class="form-group">
+			<label for="">Guia Autometrica Venta :</label>
+			{!!Form::text('vehiculo_cuenta[guia_autometrica_venta]',$prospeccion["vehiculo_cuenta"]["guia_autometrica_venta"],['class'=>'form-control','id'=>'vehiculo_cuenta_guia_autometrica_venta','placeholder'=>'Ejemplo:80000'])!!}
 		</div>
 	</div>
 </div>
@@ -229,22 +242,60 @@
  
 @foreach($database_prospeccion->prospeccionFecha as $fechas)
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12  center-block text-center">
+
+	 		 <div class="x_panel tile">
+			<div class="x_title">
+				<h3 class="text-center">Seguimiento</h3>
+			</div>
+			<div class="x_content">
+				
+	<div class="row">
+		
 	
 		<div class="form-group" >
 				<label for="">Dia para el seguimiento:</label>
 				<input type="text" value="{{$fechas->fecha}}" class="datepicker form-control" placeholder="aaaa-mm-dd">
 		</div>
 	</div>
+	<div class="row">
+		
 	
+		<div class="form-group" >
+				<label for="">Accion:</label>
+					{!!Form::textarea('accion',$fechas->accion,['class'=>'form-control','size'=>'2x3','id'=>'accion','placeholder'=>'Ejemplo: Cita, llamada, etc.'])!!}
+		</div>
+	</div>
+	</div>
+	</div>
+			</div>
 	
 @endforeach
 
 
 	<div class="col-md-3 col-sm-3 col-lg-3 col-xs-12  center-block text-center" id="_fechas" style="display:none;">
-		<div class="form-group" >
-			<label for="">Dia para el seguimiento:</label>
-			<input type="text" name="seguimiento" id="seguimiento" class="datepicker form-control" placeholder="aaaa-mm-dd">
-		</div>
+			 <div class="x_panel tile">
+			<div class="x_title">
+				<h3 class="text-center">Seguimiento</h3>
+			</div>
+			<div class="x_content">
+				
+				<div class="row">
+					<div class="form-group" >
+						<label for="">Dia para el seguimiento:</label>
+						<input type="text" name="seguimiento" id="seguimiento" class="datepicker form-control" placeholder="aaaa-mm-dd">
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="form-group" >
+						<label for="">Accion:</label>
+						{!!Form::textarea('accion',null,['class'=>'form-control','size'=>'2x3','id'=>'accion','placeholder'=>'Ejemplo: Cita, llamada, etc.'])!!}
+						</div>
+				</div>
+</div>
+			</div>
+
 	</div>
 	<div class="col-md-1 col-sm-1 col-lg-1 col-xs-12  center-block text-center">
 	
