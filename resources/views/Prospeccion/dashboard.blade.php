@@ -131,12 +131,14 @@
           },
           editable: true,
           events: [
-		@foreach($calendario as $dias)
+		@foreach($prospecciones as $prospeccion)
+        @foreach($prospeccion->prospeccionFecha as $fechas)
 				{
-					url: '{{url("Prospeccion/get/".$dias->id_prospeccion)}}',
-					title: '{{$dias->prospeccion->cliente->persona->nombre." ".$dias->prospeccion->cliente->persona->apellidoPaterno." ".$dias->prospeccion->cliente->persona->apellidoMaterno." ".$dias->descripcion}}',
-					start: '{{$dias->fecha}}'
+					url: '{{url("Prospeccion/get/".$prospeccion->id)}}',
+					title: '{{$prospeccion->cliente->persona->nombre." ".$prospeccion->cliente->persona->apellidoPaterno." ".$prospeccion->cliente->persona->apellidoMaterno}}',
+					start: '{{$fechas->fecha}}'
 				},
+        @endforeach
 			@endforeach
           ],
           

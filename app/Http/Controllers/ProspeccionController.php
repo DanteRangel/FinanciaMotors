@@ -169,9 +169,15 @@ class ProspeccionController extends Controller
 		
 	}
 	public function dashboard(){
-		$prospecciones=Prospeccion::all();
-		$calendario=prospeccionFecha::all();
-		return view('Prospeccion.dashboard',['prospecciones'=>$prospecciones,'calendario'=>$calendario]);
+		if(Auth::user()->id_permiso!=1){
+			$prospecciones=Prospeccion::where('id_vendedor','=',Auth::user()->id)->get();
+		
+		}else{
+			$prospecciones=Prospeccion::all();
+				
+		}
+		
+		return view('Prospeccion.dashboard',['prospecciones'=>$prospecciones]);
 	}
 	public function update(Request $request){
 		

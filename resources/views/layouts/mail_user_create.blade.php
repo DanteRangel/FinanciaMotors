@@ -73,7 +73,7 @@ background-color: #f6f6f6;
                     Nombre : {{$user->persona->nombre.' '.$user->persona->apellidoPaterno.' '.$user->persona->apellidoMaterno}} . <br />
                     Telefono : {{$user->persona->telefono_cel.' '.$user->persona->telefono_otro}} <br />
                     Correo : {{$user->persona->correo}} <br />
-                    Clave de Accesso: {{$user->clave_vendedor}} <br />
+                    Nombre de usuario : {{$user->clave_vendedor}} <br />
                     Password: {{$password}}
                   </td>
                 </tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" itemprop="handler" itemscope itemtype="http://schema.org/HttpActionHandler" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
